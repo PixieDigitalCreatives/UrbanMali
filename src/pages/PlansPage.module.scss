@@ -1,0 +1,186 @@
+@use '../styles/abstracts' as *;
+
+.page {
+  min-height: 100vh;
+  background-color: var(--beige, #F4ECDD);
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  text-align: left;
+
+  @include respond-to('sm') {
+    padding-top: 3rem;
+  }
+}
+
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @include respond-to('sm') {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @include respond-to('lg') {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.header {
+  margin-bottom: 2.5rem;
+}
+
+.title {
+  font-family: $font-heading;
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: var(--soil, #2B2118);
+
+  @include respond-to('sm') {
+    font-size: 2.25rem;
+  }
+
+  @include respond-to('lg') {
+    font-size: 3rem;
+  }
+}
+
+.subtitle {
+  color: var(--clay, #8B6B4A);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  max-width: 42rem;
+
+  @include respond-to('sm') {
+    font-size: 1rem;
+  }
+}
+
+.plansGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.tableCard {
+  background-color: var(--card, #FAF5EA);
+  border-radius: $radius-card;
+  border: 1px solid var(--sand, #E6D8BD);
+  box-shadow: $shadow-card;
+  padding: 1.5rem;
+  margin-bottom: 3rem;
+
+  @include respond-to('sm') {
+    padding: 2.5rem;
+  }
+}
+
+.tableTitle {
+  font-family: $font-heading;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--soil, #2B2118);
+  margin-bottom: 1.5rem;
+
+  @include respond-to('sm') {
+    font-size: 1.5rem;
+  }
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  text-align: left;
+  font-size: 0.875rem;
+  border-collapse: collapse;
+
+  th {
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--sand, #E6D8BD);
+    color: var(--clay, #8B6B4A);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+
+    &.thCol {
+      color: var(--soil, #2B2118);
+    }
+  }
+
+  td {
+    padding-top: 0.875rem;
+    padding-bottom: 0.875rem;
+    border-bottom: 1px solid rgba(230, 216, 189, 0.5);
+    color: var(--soil, #2B2118);
+
+    &.tdMuted {
+      color: var(--clay, #8B6B4A);
+    }
+
+    &.tdAttr {
+      font-weight: 500;
+    }
+  }
+}
+
+.tableNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(230, 216, 189, 0.6);
+  font-size: 0.75rem;
+  color: var(--clay, #8B6B4A);
+}
+
+.commercialCard {
+  background-color: rgba(230, 216, 189, 0.3);
+  border-radius: $radius-card;
+  border: 1px solid var(--sand, #E6D8BD);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+
+  @include respond-to('sm') {
+    flex-direction: row;
+    padding: 2rem;
+  }
+}
+
+.commercialTitle {
+  font-family: $font-heading;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--soil, #2B2118);
+
+  @include respond-to('sm') {
+    font-size: 1.25rem;
+  }
+}
+
+.commercialSubtitle {
+  font-size: 0.75rem;
+  color: var(--clay, #8B6B4A);
+  margin-top: 0.25rem;
+
+  @include respond-to('sm') {
+    font-size: 0.875rem;
+  }
+}

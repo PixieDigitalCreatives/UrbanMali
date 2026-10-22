@@ -1,0 +1,47 @@
+@use 'sass:math';
+@use 'sass:map';
+@use 'tokens' as *;
+
+// Convert pixels to rem
+@function rem($px) {
+  @if math.is-unitless($px) {
+    @return math.div($px, 16) * 1rem;
+  } @else if math.unit($px) == 'px' {
+    @return math.div($px, 16px) * 1rem;
+  }
+  @return $px;
+}
+
+// Spacing helper based on 4px grid (spacing(4) => 1rem)
+@function spacing($step) {
+  @return rem($step * 4);
+}
+
+// Color accessor
+@function color($name) {
+  @if map.has-key($colors, $name) {
+    @return map.get($colors, $name);
+  }
+  @error "Color '#{$name}' not found in $colors map.";
+}
+
+// Z-index accessor
+@function z($layer) {
+  @if map.has-key($z-indices, $layer) {
+    @return map.get($z-indices, $layer);
+  }
+  @error "Z-index layer '#{$layer}' not found in $z-indices map.";
+}
+
+// Fluid clamp between two viewport widths
+@function clamp-fluid($min-px, $max-px, $min-bp: 390, $max-bp: 1440) {
+  $min-rem: rem($min-px);
+  $max-rem: rem($max-px);
+  
+  $slope: math.div(($max-px - $min-px), ($max-bp - $min-bp));
+  $y-axis-intersection: -$min-bp * $slope + $min-px;
+  $preferred-rem: rem($y-axis-intersection);
+  $slope-vw: $slope * 100vw;
+
+  @return clamp(#{$min-rem}, #{$preferred-rem} + #{$slope-vw}, #{$max-rem});
+}

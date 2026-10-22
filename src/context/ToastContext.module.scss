@@ -1,0 +1,45 @@
+@use '../styles/abstracts' as *;
+
+.toastContainer {
+  position: fixed;
+  bottom: 5rem;
+  right: 1.5rem;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 24rem;
+  width: 100%;
+  pointer-events: none;
+
+  @include respond-to('sm') {
+    bottom: 1.5rem;
+  }
+}
+
+.toastItem {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--card, #FAF5EA);
+  border-left: 4px solid var(--moss, #3F5B34);
+  border-radius: 0 12px 12px 0;
+  box-shadow: $shadow-lift;
+  color: var(--soil, #2B2118);
+  font-size: 0.875rem;
+  animation: fadeIn $duration-base $ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

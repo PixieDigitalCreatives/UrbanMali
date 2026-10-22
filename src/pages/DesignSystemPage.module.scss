@@ -1,0 +1,102 @@
+@use '../styles/abstracts' as *;
+
+.page {
+  min-height: 100vh;
+  background-color: var(--beige, #F4ECDD);
+  padding: 3rem 1rem;
+  text-align: left;
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include respond-to('sm') {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @include respond-to('lg') {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.header {
+  border-bottom: 1px solid var(--sand, #E6D8BD);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.subTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--clay, #8B6B4A);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.mainTitle {
+  font-family: $font-heading;
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: var(--soil, #2B2118);
+
+  @include respond-to('sm') {
+    font-size: 2.25rem;
+  }
+}
+
+.desc {
+  font-size: 0.875rem;
+  color: var(--clay, #8B6B4A);
+  margin-top: 0.25rem;
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.sectionHeading {
+  font-family: $font-heading;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--soil, #2B2118);
+  margin-bottom: 1rem;
+}
+
+.swatchGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+
+  @include respond-to('sm') {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+.swatchCard {
+  background-color: var(--card, #FAF5EA);
+  border-radius: 12px;
+  padding: 0.75rem;
+  border: 1px solid var(--sand, #E6D8BD);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.swatchCircle {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

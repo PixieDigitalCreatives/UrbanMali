@@ -1,0 +1,81 @@
+@use '@/styles/abstracts' as *;
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  @include mq(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mq(lg) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.card {
+  background-color: var(--card);
+  border-radius: $radius-card;
+  border: 1px solid var(--sand);
+  box-shadow: $shadow-card;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all $duration-normal $ease-out;
+
+  @include mq(sm) {
+    align-items: flex-start;
+  }
+
+  @include mq(lg) {
+    flex-direction: column;
+  }
+
+  &:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: $shadow-lift;
+  }
+}
+
+.iconWrapper {
+  width: 3rem;
+  height: 3rem;
+  border-radius: $radius-input;
+  background-color: rgba(221, 231, 207, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid var(--sand);
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--moss);
+  }
+}
+
+.content {
+  flex: 1;
+}
+
+.title {
+  font-family: $font-sans;
+  font-weight: 600;
+  color: var(--soil);
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  color: var(--clay);
+  margin-top: 0.25rem;
+  line-height: 1.375;
+
+  @include mq(sm) {
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,52 @@
+@use '../styles/abstracts' as *;
+
+.page {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  text-align: center;
+  max-width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
+  user-select: none;
+}
+
+.iconWrap {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 9999px;
+  background-color: rgba(230, 216, 189, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clay, #8B6B4A);
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--sand, #E6D8BD);
+}
+
+.code {
+  font-family: $font-heading;
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--soil, #2B2118);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-family: $font-heading;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--soil, #2B2118);
+  margin-bottom: 0.75rem;
+}
+
+.desc {
+  color: var(--clay, #8B6B4A);
+  font-size: 0.875rem;
+  line-height: 1.625;
+  margin-bottom: 2rem;
+}

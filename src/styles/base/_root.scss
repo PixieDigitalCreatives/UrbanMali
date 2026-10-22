@@ -1,0 +1,40 @@
+@use '../abstracts/tokens' as *;
+
+:root {
+  // Brand color custom properties
+  --soil: #{$color-soil};
+  --brown: #{$color-brown};
+  --clay: #{$color-clay};
+  --tan: #{$color-tan};
+  --beige: #{$color-beige};
+  --card: #{$color-card};
+  --sand: #{$color-sand};
+  --moss: #{$color-moss};
+  --moss-hover: #{$color-moss-hover};
+  --sage: #{$color-sage};
+  --sage-light: #{$color-sage-light};
+  --leaf: #{$color-leaf};
+  --brick: #{$color-brick};
+
+  // Badges
+  --badge-stock-bg: #{$badge-stock-bg};
+  --badge-stock-text: #{$badge-stock-text};
+  --badge-out-bg: #{$badge-out-bg};
+  --badge-out-text: #{$badge-out-text};
+  --badge-soon-bg: #{$badge-soon-bg};
+  --badge-soon-text: #{$badge-soon-text};
+  --badge-request-bg: #{$badge-request-bg};
+  --badge-request-text: #{$badge-request-text};
+
+  // Radii
+  --radius-card: #{$radius-card};
+  --radius-button: #{$radius-button};
+  --radius-pincode: #{$radius-pincode};
+  --radius-input: #{$radius-input};
+  --radius-pill: #{$radius-pill};
+
+  // Shadows
+  --shadow-card: #{$shadow-card};
+  --shadow-lift: #{$shadow-lift};
+  --shadow-ring-sage: #{$shadow-ring-sage};
+}

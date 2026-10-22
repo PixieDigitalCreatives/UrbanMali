@@ -1,0 +1,55 @@
+@use '@/styles/abstracts' as *;
+
+.chip {
+  height: 2.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: $radius-pill;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 500;
+  transition: all $duration-fast $ease-out;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--sand);
+  background-color: var(--card);
+  color: var(--soil);
+
+  @include mq(sm) {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  &:hover {
+    border-color: rgba(94, 75, 59, 0.6);
+    background-color: rgba(230, 216, 189, 0.3);
+  }
+}
+
+.isSelectedSolid {
+  background-color: var(--moss);
+  color: var(--beige);
+  border-color: var(--moss);
+  font-weight: 600;
+  box-shadow: $shadow-sm;
+
+  &:hover {
+    background-color: var(--moss);
+    border-color: var(--moss);
+  }
+}
+
+.isSelectedSoft {
+  background-color: var(--sage-light);
+  color: var(--moss);
+  border-color: var(--moss);
+  font-weight: 600;
+  box-shadow: $shadow-sm;
+
+  &:hover {
+    background-color: var(--sage-light);
+    border-color: var(--moss);
+  }
+}

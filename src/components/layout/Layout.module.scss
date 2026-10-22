@@ -1,0 +1,128 @@
+@use '@/styles/abstracts' as *;
+
+.root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--beige);
+  color: var(--soil);
+
+  ::selection {
+    background-color: var(--sage-light);
+    color: var(--moss);
+  }
+}
+
+.headerContainer {
+  display: block;
+
+  &.hideOnMobile {
+    display: none;
+
+    @include mq(lg) {
+      display: block;
+    }
+  }
+}
+
+.main {
+  flex: 1;
+}
+
+.searchModalContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.searchResults {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 18rem;
+  overflow-y: auto;
+  padding-top: 0.5rem;
+}
+
+.categoryTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--clay);
+  margin-bottom: 0.5rem;
+}
+
+.itemList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.serviceItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-radius: $radius-input;
+  font-size: 0.875rem;
+  transition: background-color $duration-fast $ease-out;
+
+  &:hover {
+    background-color: rgba(230, 216, 189, 0.4);
+  }
+}
+
+.serviceTitle {
+  font-weight: 500;
+  color: var(--soil);
+}
+
+.servicePrice {
+  font-size: 0.75rem;
+  color: var(--moss);
+  font-weight: 600;
+}
+
+.productItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  border-radius: $radius-input;
+  font-size: 0.875rem;
+  transition: background-color $duration-fast $ease-out;
+
+  &:hover {
+    background-color: rgba(230, 216, 189, 0.4);
+  }
+}
+
+.productThumb {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.productInfo {
+  flex: 1;
+}
+
+.productName {
+  font-weight: 500;
+  color: var(--soil);
+  line-height: 1.25;
+}
+
+.productPrice {
+  font-size: 0.75rem;
+  color: var(--clay);
+}
+
+.noResults {
+  padding: 1.5rem 0;
+  text-align: center;
+  color: var(--clay);
+  font-size: 0.875rem;
+}

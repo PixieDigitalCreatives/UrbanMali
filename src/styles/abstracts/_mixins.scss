@@ -1,0 +1,107 @@
+@use 'sass:map';
+@use 'tokens' as *;
+@use 'functions' as *;
+
+// Mobile-first media query
+@mixin mq($bp) {
+  @if map.has-key($breakpoints, $bp) {
+    $width: map.get($breakpoints, $bp);
+    @media (min-width: #{$width}) {
+      @content;
+    }
+  } @else {
+    @media (min-width: #{$bp}) {
+      @content;
+    }
+  }
+}
+
+// Alias for mq
+@mixin respond-to($bp) {
+  @include mq($bp) {
+    @content;
+  }
+}
+
+// Max-width media query (desktop-down exception)
+@mixin mq-max($bp) {
+  @if map.has-key($breakpoints, $bp) {
+    $width: map.get($breakpoints, $bp) - 1px;
+    @media (max-width: #{$width}) {
+      @content;
+    }
+  } @else {
+    @media (max-width: #{$bp}) {
+      @content;
+    }
+  }
+}
+
+// Accessible visible focus ring
+@mixin focus-ring($color: $color-sage-light, $offset: 2px) {
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 $offset $color-beige, 0 0 0 ($offset + 3px) $color-moss;
+  }
+}
+
+// Screen-reader only utility
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+// Multi-line text truncation
+@mixin line-clamp($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Signature card surface
+@mixin card-surface {
+  background-color: var(--card, #{$color-card});
+  border: 1px solid var(--sand, #{$color-sand});
+  border-radius: $radius-card;
+  box-shadow: $shadow-card;
+}
+
+// Full pill button styling
+@mixin pill-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-pill;
+  font-family: $font-sans;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all $duration-base $ease-out;
+}
+
+// Subtle organic grain overlay
+@mixin grain-overlay {
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url('/images/grain-texture.jpg');
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    z-index: 1;
+  }
+}
+
+// iOS safe area padding
+@mixin safe-area($property: padding-bottom, $extra: 0px) {
+  #{$property}: calc(#{$extra} + env(safe-area-inset-bottom, 0px));
+}

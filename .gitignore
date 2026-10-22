@@ -1,0 +1,53 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Build outputs
+dist
+build
+.next
+out
+
+# Test artifacts and diff reports (baseline images are tracked)
+/tests/visual/report
+/tests/visual/diff
+/tests/visual/current
+playwright-report
+test-results
+
+# System & IDE
+.DS_Store
+Thumbs.db
+*.local
+.vscode
+.idea
+*.log
+.gemini/
+
+# Scratch & development audit scripts
+scratch_*.mjs
+scripts/check-*.mjs
+scripts/inspect-*.mjs
+scripts/find-*.mjs
+scripts/measure-*.mjs
+scripts/compare-*.mjs
+scripts/breakdown-*.mjs
+scripts/diff-*.mjs
+scripts/diagnose-*.mjs
+scripts/sample-*.mjs
+scripts/scan-*.mjs
+scripts/test-*.mjs
+scripts/card6-y-diff.mjs
+scripts/first-diff-*.mjs
+scripts/major-diff-*.mjs
+
+# Temporary evaluation images (production artwork remains tracked)
+public/images/current_desktop_hero.png
+public/images/full_frontpage_2x.png
+public/images/hero-art-clean.png
+public/images/hero-art-pristine.png
+public/images/hero-art-user-crop.png
+public/images/hero_enhanced_2x.png
+public/images/user-artwork-crop.png
+

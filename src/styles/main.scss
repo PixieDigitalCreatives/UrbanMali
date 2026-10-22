@@ -1,0 +1,9 @@
+// ==========================================
+// URBANMAALI MAIN GLOBAL SCSS
+// Replaces index.css and Tailwind directives
+// ==========================================
+
+@use 'base/reset';
+@use 'base/root';
+@use 'base/typography';
+@use 'base/utilities';

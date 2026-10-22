@@ -1,0 +1,226 @@
+@use '../styles/abstracts' as *;
+
+.page {
+  min-height: 100vh;
+  background-color: var(--beige, #F4ECDD);
+  padding-top: 1.5rem;
+  padding-bottom: 5rem;
+  text-align: left;
+
+  @include respond-to('sm') {
+    padding-top: 2.5rem;
+  }
+}
+
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @include respond-to('sm') {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @include respond-to('lg') {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.header {
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-family: $font-heading;
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: var(--soil, #2B2118);
+
+  @include respond-to('sm') {
+    font-size: 2.25rem;
+  }
+}
+
+.subtitle {
+  color: var(--clay, #8B6B4A);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+
+  @include respond-to('sm') {
+    font-size: 1rem;
+  }
+}
+
+.searchFilterBar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.searchBox {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background-color: var(--card, #FAF5EA);
+  border-radius: 14px;
+  padding: 0.625rem 1rem;
+  border: 1px solid var(--sand, #E6D8BD);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: all $duration-fast $ease-out;
+
+  &:focus-within {
+    border-color: var(--moss, #3F5B34);
+    box-shadow: 0 0 0 2px var(--sage-light, #DDE7CF);
+  }
+}
+
+.searchIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--clay, #8B6B4A);
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.searchInput {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--soil, #2B2118);
+  font-size: 0.875rem;
+  outline: none;
+
+  &::placeholder {
+    color: rgba(139, 107, 74, 0.7);
+  }
+}
+
+.filterBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background-color: var(--card, #FAF5EA);
+  border: 1px solid var(--sand, #E6D8BD);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--soil, #2B2118);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all $duration-fast $ease-out;
+
+  &:hover {
+    color: var(--moss, #3F5B34);
+    background-color: rgba(230, 216, 189, 0.3);
+  }
+}
+
+.chipScroll {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  user-select: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 4rem;
+
+  @include respond-to('sm') {
+    gap: 1.5rem;
+  }
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.emptyState {
+  background-color: var(--card, #FAF5EA);
+  border-radius: $radius-card;
+  border: 1px solid var(--sand, #E6D8BD);
+  padding: 3rem;
+  text-align: center;
+  max-width: 28rem;
+  margin: 3rem auto;
+}
+
+.emptyIconWrap {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 9999px;
+  background-color: rgba(230, 216, 189, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  color: var(--clay, #8B6B4A);
+}
+
+.emptyTitle {
+  font-family: $font-heading;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--soil, #2B2118);
+}
+
+.emptyDesc {
+  color: var(--clay, #8B6B4A);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.filterGroup {
+  margin-bottom: 1.5rem;
+}
+
+.filterLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--clay, #8B6B4A);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: var(--soil, #2B2118);
+
+  input {
+    accent-color: var(--moss, #3F5B34);
+  }
+}

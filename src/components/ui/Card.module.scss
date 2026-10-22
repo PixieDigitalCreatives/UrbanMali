@@ -1,0 +1,16 @@
+@use '@/styles/abstracts' as *;
+
+.card {
+  background-color: var(--card);
+  border-radius: $radius-card;
+  border: 1px solid var(--sand);
+  box-shadow: $shadow-card;
+  transition: all $duration-slow $ease-out;
+}
+
+.hoverable {
+  &:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: $shadow-lift;
+  }
+}

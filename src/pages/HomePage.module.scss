@@ -1,0 +1,702 @@
+@use '../styles/abstracts' as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 5rem;
+
+  @include respond-to('lg') {
+    padding-bottom: 0;
+  }
+}
+
+// ═══════════════ HERO SECTION ═══════════════
+.heroSection {
+  position: relative;
+  padding-top: 0.5rem;
+  padding-bottom: 2.5rem;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+
+  @include respond-to('sm') {
+    padding-top: 1.5rem;
+    padding-bottom: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  @include respond-to('lg') {
+    padding-top: 2rem;
+    padding-left: 2.5rem;
+    padding-right: 0;
+  }
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  z-index: 10;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+  @include respond-to('lg') {
+    grid-column: span 5 / span 5;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+.heroHeading {
+  font-family: $font-heading;
+  font-weight: 600;
+  color: var(--soil, #2B2118);
+  font-size: 2.25rem;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+
+  @include respond-to('sm') {
+    font-size: 3rem;
+    margin-bottom: 1.25rem;
+  }
+
+  @include respond-to('md') {
+    font-size: 3.75rem;
+  }
+
+  @include respond-to('lg') {
+    font-size: 76px;
+  }
+
+  @include respond-to('xl') {
+    font-size: 84px;
+  }
+
+  span {
+    color: inherit;
+  }
+}
+
+.heroSubtitle {
+  color: #7D6F5C;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.55;
+  max-width: 430px;
+  margin-bottom: 1.5rem;
+
+  @include respond-to('sm') {
+    font-size: 1rem;
+    margin-bottom: 1.75rem;
+  }
+
+  @include respond-to('lg') {
+    font-size: 17px;
+  }
+}
+
+.heroPincode {
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: 1.5rem;
+
+  @include respond-to('sm') {
+    margin-bottom: 1.75rem;
+  }
+}
+
+.heroActions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.75rem;
+  width: 100%;
+
+  @include respond-to('sm') {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    width: auto;
+  }
+}
+
+.heroActionBtn {
+  width: 100%;
+
+  @include respond-to('sm') {
+    width: auto;
+  }
+}
+
+.bookButton {
+  height: 48px !important;
+  border-radius: 9999px !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  background-color: #354E37 !important;
+  color: #FAF5EA !important;
+
+  &:hover {
+    background-color: #2B3F2C !important;
+  }
+
+  @include respond-to('sm') {
+    height: 50px !important;
+  }
+}
+
+.whatsappButton {
+  height: 48px !important;
+  border-radius: 9999px !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  border: 2px solid #354E37 !important;
+  color: #354E37 !important;
+  background: transparent !important;
+
+  &:hover {
+    background-color: rgba(53, 78, 55, 0.1) !important;
+  }
+
+  @include respond-to('sm') {
+    height: 50px !important;
+  }
+}
+
+.heroImageCol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+  position: relative;
+
+  @include respond-to('lg') {
+    grid-column: span 7 / span 7;
+    justify-content: flex-end;
+    margin-top: 0;
+    margin-right: -2rem;
+  }
+
+  @include respond-to('xl') {
+    margin-right: -3rem;
+  }
+}
+
+.heroBlobImage {
+  width: 100%;
+  max-width: 500px;
+
+  @include respond-to('lg') {
+    max-width: none;
+    width: 110%;
+  }
+}
+
+// ═══════════════ SERVICES SECTION ═══════════════
+.servicesSection {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  max-width: 1360px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+
+  @include respond-to('sm') {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @include respond-to('lg') {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+
+  @include respond-to('sm') {
+    gap: 1rem;
+  }
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+// ═══════════════ HOW IT WORKS SECTION ═══════════════
+.howItWorksWrap {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: rgba(250, 245, 234, 0.6);
+  border-top: 1px solid rgba(230, 216, 189, 0.6);
+  border-bottom: 1px solid rgba(230, 216, 189, 0.6);
+
+  @include respond-to('sm') {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+}
+
+.sectionContainer {
+  max-width: 1360px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @include respond-to('sm') {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @include respond-to('lg') {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+// ═══════════════ PLANS SECTION ═══════════════
+.plansSection {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  max-width: 1360px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+
+  @include respond-to('sm') {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @include respond-to('lg') {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.plansGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+
+  @include respond-to('sm') {
+    gap: 2rem;
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+// ═══════════════ WHO WE SERVE SECTION ═══════════════
+.whoWeServeWrap {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  background-color: rgba(250, 245, 234, 0.5);
+  border-top: 1px solid rgba(230, 216, 189, 0.6);
+  border-bottom: 1px solid rgba(230, 216, 189, 0.6);
+
+  @include respond-to('sm') {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+// ═══════════════ FEATURED PRODUCTS ═══════════════
+.productsSection {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  max-width: 1360px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+
+  @include respond-to('sm') {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @include respond-to('lg') {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+
+  @include respond-to('sm') {
+    gap: 1.5rem;
+  }
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+// ═══════════════ FAQ SECTION ═══════════════
+.faqSection {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: rgba(250, 245, 234, 0.7);
+  border-top: 1px solid rgba(230, 216, 189, 0.7);
+
+  @include respond-to('sm') {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+}
+
+.faqContainer {
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @include respond-to('sm') {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.faqHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.faqTitle {
+  font-family: $font-heading;
+  font-weight: 600;
+  color: var(--soil, #2B2118);
+  font-size: 1.5rem;
+
+  @include respond-to('sm') {
+    font-size: 1.875rem;
+  }
+}
+
+.faqSubtitle {
+  font-size: 0.75rem;
+  color: var(--clay, #8B6B4A);
+  margin-top: 0.375rem;
+
+  @include respond-to('sm') {
+    font-size: 0.875rem;
+  }
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.faqItem {
+  background-color: var(--card, #FAF5EA);
+  border-radius: 12px;
+  border: 1px solid var(--sand, #E6D8BD);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all $duration-base $ease-out;
+}
+
+.faqButton {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  gap: 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color $duration-fast $ease-out;
+
+  &:hover {
+    background-color: rgba(230, 216, 189, 0.2);
+  }
+
+  @include respond-to('sm') {
+    padding: 0.875rem 1.25rem;
+  }
+}
+
+.faqQuestion {
+  font-family: $font-sans;
+  font-weight: 600;
+  color: var(--soil, #2B2118);
+  font-size: 0.875rem;
+
+  @include respond-to('sm') {
+    font-size: 1rem;
+  }
+}
+
+.faqIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--clay, #8B6B4A);
+  flex-shrink: 0;
+  transition: transform $duration-normal $ease-out;
+
+  &.faqIconOpen {
+    transform: rotate(180deg);
+    color: var(--moss, #3F5B34);
+  }
+}
+
+.faqAnswer {
+  padding: 0.25rem 1rem 1rem;
+  font-size: 0.75rem;
+  color: var(--clay, #8B6B4A);
+  line-height: 1.625;
+  border-top: 1px solid rgba(230, 216, 189, 0.4);
+
+  @include respond-to('sm') {
+    padding: 0.25rem 1.25rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+// ═══════════════ PARTNER BANNER ═══════════════
+.partnerSection {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  max-width: 1360px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+
+  @include respond-to('sm') {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @include respond-to('lg') {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.partnerBanner {
+  background-color: rgba(221, 231, 207, 0.6);
+  border-radius: $radius-card;
+  border: 1px solid rgba(63, 91, 52, 0.2);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+  @include respond-to('sm') {
+    flex-direction: row;
+    padding: 2rem;
+  }
+}
+
+.partnerInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+}
+
+.partnerIconBox {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1rem;
+  background-color: var(--card, #FAF5EA);
+  border: 1px solid var(--sand, #E6D8BD);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  @include respond-to('sm') {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+
+.partnerTitle {
+  font-family: $font-heading;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--soil, #2B2118);
+
+  @include respond-to('sm') {
+    font-size: 1.25rem;
+  }
+}
+
+.partnerText {
+  font-size: 0.75rem;
+  color: var(--clay, #8B6B4A);
+  margin-top: 0.25rem;
+  max-width: 32rem;
+
+  @include respond-to('sm') {
+    font-size: 0.875rem;
+  }
+}
+
+// ═══════════════ FINAL CTA SECTION ═══════════════
+.ctaSection {
+  background-color: var(--moss, #3F5B34);
+  color: var(--beige, #F4ECDD);
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  @include respond-to('sm') {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+}
+
+.ctaContainer {
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  position: relative;
+  z-index: 10;
+
+  @include respond-to('sm') {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.ctaHeading {
+  font-family: $font-heading;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--beige, #F4ECDD);
+
+  @include respond-to('sm') {
+    font-size: 2.25rem;
+  }
+}
+
+.ctaSubtitle {
+  color: rgba(230, 216, 189, 0.8);
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  line-height: 1.625;
+
+  @include respond-to('sm') {
+    font-size: 0.875rem;
+  }
+
+  @include respond-to('md') {
+    font-size: 1rem;
+  }
+}
+
+.ctaActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+
+  @include respond-to('sm') {
+    flex-direction: row;
+  }
+}
+
+.ctaBookBtn {
+  background-color: var(--card, #FAF5EA) !important;
+  color: var(--soil, #2B2118) !important;
+  border: none !important;
+  box-shadow: $shadow-lift !important;
+  font-weight: 600 !important;
+  height: 48px !important;
+
+  &:hover {
+    background-color: var(--beige, #F4ECDD) !important;
+  }
+
+  @include respond-to('sm') {
+    height: 56px !important;
+  }
+}
+
+.ctaWhatsappBtn {
+  border: 1px solid rgba(244, 236, 221, 0.6) !important;
+  color: var(--beige, #F4ECDD) !important;
+  height: 48px !important;
+
+  &:hover {
+    background-color: rgba(244, 236, 221, 0.1) !important;
+  }
+
+  @include respond-to('sm') {
+    height: 56px !important;
+  }
+}

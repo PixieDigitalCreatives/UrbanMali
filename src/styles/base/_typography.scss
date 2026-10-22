@@ -1,0 +1,40 @@
+@use '../abstracts/tokens' as *;
+
+body {
+  font-family: $font-sans;
+  background-color: var(--beige);
+  color: var(--soil);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Fraunces for headings
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: $font-serif;
+  color: var(--soil);
+}
+
+// Selection styling
+::selection {
+  background-color: var(--sage-light);
+  color: var(--moss);
+}
+
+// Scrollbars
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--beige);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sand);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--tan);
+}

@@ -1,0 +1,4 @@
+// Forward all abstracts so `@use "@/styles/abstracts" as *;` exposes tokens, functions, and mixins.
+@forward 'tokens';
+@forward 'functions';
+@forward 'mixins';

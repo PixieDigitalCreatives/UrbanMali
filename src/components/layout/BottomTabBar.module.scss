@@ -1,0 +1,78 @@
+@use '@/styles/abstracts' as *;
+
+.nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: z('fixed');
+  background-color: rgba(250, 245, 234, 0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--sand);
+  box-shadow: 0 -4px 12px rgba(43, 33, 24, 0.05);
+  height: 4rem;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  user-select: none;
+
+  @include mq(lg) {
+    display: none;
+  }
+}
+
+.tabLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 0.25rem 0;
+  color: var(--clay);
+  transition: color $duration-fast $ease-out;
+  position: relative;
+
+  &:hover {
+    color: var(--soil);
+  }
+
+  &.isActive {
+    color: var(--moss);
+    font-weight: 600;
+  }
+
+  &.whatsappTab {
+    color: var(--moss);
+
+    &:hover {
+      color: var(--moss-hover);
+    }
+  }
+}
+
+.label {
+  font-size: 10.5px;
+  margin-top: 0.25rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.badge {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.875rem;
+  background-color: var(--tan);
+  color: var(--soil);
+  font-size: 9px;
+  font-weight: 700;
+  width: 0.875rem;
+  height: 0.875rem;
+  border-radius: $radius-full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

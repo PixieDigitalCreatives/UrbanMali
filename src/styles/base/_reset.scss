@@ -1,0 +1,113 @@
+// ==========================================
+// PREFLIGHT RESET
+// Exact Tailwind Preflight equivalent to prevent silent visual shifts
+// ==========================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: var(--sand, #E6D8BD);
+}
+
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  line-height: inherit;
+  background-color: var(--beige, #F4ECDD);
+  color: var(--soil, #2B2118);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--sage-light, #DDE7CF);
+  color: var(--moss, #3F5B34);
+}
+
+// Resets margins
+h1, h2, h3, h4, h5, h6,
+p, blockquote, figure,
+dl, dd, ul, ol {
+  margin: 0;
+}
+
+// Reset lists
+ul, ol {
+  list-style: none;
+  padding: 0;
+}
+
+// Reset media
+img, svg, video, canvas, audio, iframe, embed, object {
+  display: block;
+  vertical-align: middle;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+// Reset links
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+// Reset buttons and form controls
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  font-size: 100%;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+:where(button, [type='button'], [type='reset'], [type='submit']) {
+  -webkit-appearance: button;
+  background-color: transparent;
+  background-image: none;
+  cursor: pointer;
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+  color: var(--clay, #8B6B4A);
+}
+
+// Table resets
+table {
+  text-indent: 0;
+  border-color: inherit;
+  border-collapse: collapse;
+}
+
+// Hidden attribute
+[hidden] {
+  display: none !important;
+}
