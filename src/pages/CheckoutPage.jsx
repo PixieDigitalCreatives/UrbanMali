@@ -107,7 +107,7 @@ export const CheckoutPage = () => {
   if (items.length === 0) {
     return (
       <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '1.5rem', textAlign: 'center' }}>
-        <h2 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-heading)', fontWeight: 600, color: 'var(--soil, #2B2118)' }}>
+        <h2 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-heading)', fontWeight: 600, color: 'var(--soil, #0E3529)' }}>
           No items in checkout
         </h2>
         <Link to="/shop" style={{ marginTop: '1rem' }}>
@@ -142,7 +142,7 @@ export const CheckoutPage = () => {
               onChange={(e) => setName(e.target.value)}
             />
             <div>
-              <label style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--soil, #2B2118)', display: 'block', marginBottom: '0.375rem' }}>
+              <label style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--soil, #0E3529)', display: 'block', marginBottom: '0.375rem' }}>
                 Phone Number <span style={{ color: 'var(--brick, #C25E3E)' }}>*</span>
               </label>
               <div className={styles.phoneGroup}>
@@ -199,10 +199,10 @@ export const CheckoutPage = () => {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem', paddingTop: '0.25rem' }}>
               {[
-                { id: 'UPI', label: 'UPI (GPay, PhonePe, Paytm)', icon: <Smartphone style={{ width: '20px', height: '20px', color: '#3F5B34' }} /> },
-                { id: 'Cards', label: 'Credit or Debit Card', icon: <CreditCard style={{ width: '20px', height: '20px', color: '#3F5B34' }} /> },
-                { id: 'Netbanking', label: 'Netbanking', icon: <Landmark style={{ width: '20px', height: '20px', color: '#3F5B34' }} /> },
-                { id: 'Cash on delivery', label: 'Cash on Delivery (Pay at doorstep)', icon: <Banknote style={{ width: '20px', height: '20px', color: '#3F5B34' }} /> },
+                { id: 'UPI', label: 'UPI (GPay, PhonePe, Paytm)', icon: <Smartphone style={{ width: '20px', height: '20px', color: '#1F5E46' }} /> },
+                { id: 'Cards', label: 'Credit or Debit Card', icon: <CreditCard style={{ width: '20px', height: '20px', color: '#1F5E46' }} /> },
+                { id: 'Netbanking', label: 'Netbanking', icon: <Landmark style={{ width: '20px', height: '20px', color: '#1F5E46' }} /> },
+                { id: 'Cash on delivery', label: 'Cash on Delivery (Pay at doorstep)', icon: <Banknote style={{ width: '20px', height: '20px', color: '#1F5E46' }} /> },
               ].map((method) => (
                 <label
                   key={method.id}
@@ -214,9 +214,9 @@ export const CheckoutPage = () => {
                       name="payment"
                       checked={paymentMethod === method.id}
                       onChange={() => setPaymentMethod(method.id)}
-                      style={{ accentColor: 'var(--moss, #3F5B34)', width: '16px', height: '16px' }}
+                      style={{ accentColor: 'var(--moss, #1F5E46)', width: '16px', height: '16px' }}
                     />
-                    <span style={{ fontSize: '0.875rem', color: 'var(--soil, #2B2118)' }}>{method.label}</span>
+                    <span style={{ fontSize: '0.875rem', color: 'var(--soil, #0E3529)' }}>{method.label}</span>
                   </div>
                   {method.icon}
                 </label>
@@ -225,33 +225,33 @@ export const CheckoutPage = () => {
           </div>
 
           {/* Order Total Overview */}
-          <div className={styles.card} style={{ gap: '0.5rem', fontSize: '0.875rem', color: 'var(--soil, #2B2118)' }}>
+          <div className={styles.card} style={{ gap: '0.5rem', fontSize: '0.875rem', color: 'var(--soil, #0E3529)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <span>Subtotal ({totalCount} items)</span>
               <span>₹{subtotal}</span>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', color: 'var(--clay, #8B6B4A)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', color: 'var(--clay, #5F7268)' }}>
               <span>Delivery</span>
               <span>{deliveryFee === 0 ? 'FREE' : `₹${deliveryFee}`}</span>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1rem', fontWeight: 'bold', color: 'var(--soil, #2B2118)', paddingTop: '0.5rem', borderTop: '1px solid rgba(230, 216, 189, 0.6)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1rem', fontWeight: 'bold', color: 'var(--soil, #0E3529)', paddingTop: '0.5rem', borderTop: '1px solid rgba(231, 222, 198, 0.6)' }}>
               <span>Grand Total</span>
-              <span style={{ color: 'var(--moss, #3F5B34)', fontFamily: 'var(--font-heading)', fontSize: '1.25rem' }}>₹{orderTotal}</span>
+              <span style={{ color: 'var(--moss, #1F5E46)', fontFamily: 'var(--font-heading)', fontSize: '1.25rem' }}>₹{orderTotal}</span>
             </div>
           </div>
 
           {/* Consent Checkbox */}
-          <label style={{ display: 'flex', alignItems: 'flex-start', gap: '0.625rem', fontSize: '12px', color: 'var(--clay, #8B6B4A)', cursor: 'pointer' }}>
+          <label style={{ display: 'flex', alignItems: 'flex-start', gap: '0.625rem', fontSize: '12px', color: 'var(--clay, #5F7268)', cursor: 'pointer' }}>
             <input
               type="checkbox"
               checked={termsAgreed}
               onChange={(e) => setTermsAgreed(e.target.checked)}
-              style={{ marginTop: '2px', accentColor: 'var(--moss, #3F5B34)', width: '16px', height: '16px' }}
+              style={{ marginTop: '2px', accentColor: 'var(--moss, #1F5E46)', width: '16px', height: '16px' }}
               required
             />
             <span>
               I agree to the{' '}
-              <Link to="/terms" style={{ color: 'var(--moss, #3F5B34)', textDecoration: 'underline' }}>
+              <Link to="/terms" style={{ color: 'var(--moss, #1F5E46)', textDecoration: 'underline' }}>
                 terms & conditions
               </Link>{' '}
               and privacy policy.
@@ -279,20 +279,20 @@ export const CheckoutPage = () => {
         title="Simulated Demo Payment"
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', textAlign: 'center' }}>
-          <div style={{ padding: '0.75rem', backgroundColor: 'rgba(221, 231, 207, 0.6)', borderRadius: '12px', border: '1px solid rgba(63, 91, 52, 0.2)', fontSize: '12px', color: 'var(--soil, #2B2118)' }}>
+          <div style={{ padding: '0.75rem', backgroundColor: 'rgba(220, 232, 223, 0.6)', borderRadius: '12px', border: '1px solid rgba(31, 94, 70, 0.2)', fontSize: '12px', color: 'var(--soil, #0E3529)' }}>
             🔔 <strong>Frontend Prototype:</strong> No real money will be charged. Choose an outcome to test order handling.
           </div>
 
           <div style={{ padding: '0.5rem 0' }}>
-            <span style={{ fontSize: '12px', color: 'var(--clay, #8B6B4A)', textTransform: 'uppercase', letterSpacing: '0.05em', display: 'block' }}>Payable Amount</span>
-            <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.875rem', fontWeight: 'bold', color: 'var(--soil, #2B2118)' }}>₹{orderTotal}</span>
-            <span style={{ fontSize: '12px', color: 'var(--clay, #8B6B4A)', display: 'block', marginTop: '4px' }}>Method: {paymentMethod}</span>
+            <span style={{ fontSize: '12px', color: 'var(--clay, #5F7268)', textTransform: 'uppercase', letterSpacing: '0.05em', display: 'block' }}>Payable Amount</span>
+            <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.875rem', fontWeight: 'bold', color: 'var(--soil, #0E3529)' }}>₹{orderTotal}</span>
+            <span style={{ fontSize: '12px', color: 'var(--clay, #5F7268)', display: 'block', marginTop: '4px' }}>Method: {paymentMethod}</span>
           </div>
 
           {simulationState === 'processing' && (
             <div style={{ padding: '1.5rem 0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
-              <Loader2 style={{ width: '32px', height: '32px', color: '#3F5B34' }} className="animate-spin" />
-              <span style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--soil, #2B2118)' }}>Processing bank authorization...</span>
+              <Loader2 style={{ width: '32px', height: '32px', color: '#1F5E46' }} className="animate-spin" />
+              <span style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--soil, #0E3529)' }}>Processing bank authorization...</span>
             </div>
           )}
 

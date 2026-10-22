@@ -3,163 +3,166 @@
 .card {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  border-radius: $radius-frame;
   background-color: var(--card);
-  border-radius: $radius-card;
-  border: 1px solid var(--sand);
+  border: 1px solid rgba(14, 53, 41, 0.08);
   box-shadow: $shadow-card;
   overflow: hidden;
-  transition: all $duration-slow $ease-out;
+  transition: transform 700ms $ease-expo-out, box-shadow 500ms $ease-out;
 
-  @include mq(sm) {
-    flex-direction: row;
-  }
-
-  &:hover {
-    box-shadow: $shadow-lift;
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: $shadow-lift;
+    }
   }
 }
 
 .imageContainer {
   position: relative;
-  min-height: 190px;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
-  background-color: rgba(230, 216, 189, 0.3);
-  flex-shrink: 0;
-
-  @include mq(sm) {
-    width: 38%;
-    min-height: 100%;
-  }
+  margin: 0.6rem 0.6rem 0;
+  border-radius: 22px;
+  background-color: var(--sand);
 }
 
 .image {
+  position: absolute;
+  inset: -8% 0;
   width: 100%;
-  height: 100%;
+  height: 116%;
+  max-width: none;
   object-fit: cover;
-  transition: transform $duration-normal $ease-out;
-  filter: contrast(1.02) saturate(1.03);
-
-  &:hover {
-    transform: scale(1.05);
-  }
 }
 
 .badgePosition {
   position: absolute;
-  bottom: 0.625rem;
-  right: 0.625rem;
-}
-
-.content {
-  padding: 1.25rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  @include mq(sm) {
-    padding: 1.5rem;
-  }
-}
-
-.audience {
-  font-size: 0.75rem;
-  line-height: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--clay);
-  font-weight: 500;
-  display: block;
-  margin-bottom: 0.25rem;
-}
-
-.title {
-  font-family: $font-heading;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  font-weight: 600;
-  color: var(--soil);
-
-  @include mq(sm) {
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-}
-
-.description {
-  font-size: 0.75rem;
-  line-height: 1.625;
-  color: var(--clay);
-  margin-top: 0.5rem;
-  font-weight: 400;
-
-  @include mq(sm) {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-  }
-}
-
-.statusWrapper {
-  margin-top: 0.75rem;
+  left: 0.9rem;
+  bottom: 0.9rem;
+  z-index: 1;
 }
 
 .statusPill {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  z-index: 1;
+  padding: 0.45rem 0.85rem;
   border-radius: $radius-pill;
-  background-color: #DCE6EE;
-  color: #3E5A73;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  font-weight: 600;
-  border: 1px solid rgba(62, 90, 115, 0.2);
+  background: rgba(251, 248, 241, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--moss);
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+}
+
+.audience {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--clay);
+  margin-bottom: 0.9rem;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: clamp(2rem, 1.5rem + 1.6vw, 3rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--soil);
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--brown);
+  max-width: 34rem;
+  margin-bottom: 1.75rem;
+}
+
+.features {
+  display: grid;
+  gap: 0.75rem;
+  padding-top: 1.5rem;
+  margin-bottom: 2rem;
+  border-top: 1px solid rgba(14, 53, 41, 0.1);
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--soil);
+  }
+}
+
+.check {
+  flex-shrink: 0;
+  width: 1.3rem;
+  height: 1.3rem;
+  padding: 0.25rem;
+  margin-top: 0.05rem;
+  border-radius: 50%;
+  background-color: var(--sage-light);
+  color: var(--moss);
 }
 
 .footerRow {
-  margin-top: 1.25rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(230, 216, 189, 0.5);
+  margin-top: auto;
 }
 
 .quoteButton {
-  width: 100%;
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  padding: 0.625rem 1.25rem;
-  border-radius: $radius-button;
-  background-color: var(--card);
-  border: 1px solid var(--sand);
-  color: var(--soil);
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 600;
-  transition: all $duration-fast $ease-out;
-
-  @include mq(sm) {
-    width: auto;
-    justify-content: flex-start;
-  }
+  gap: 0.85rem;
+  height: 3.3rem;
+  padding: 0 0.4rem 0 1.5rem;
+  border-radius: $radius-pill;
+  background-color: var(--soil);
+  color: var(--beige);
+  font-size: 0.9rem;
+  font-weight: 650;
+  transition: background-color 350ms $ease-out;
 
   &:hover {
-    border-color: var(--moss);
-    background-color: rgba(230, 216, 189, 0.3);
+    background-color: var(--moss);
 
-    .chevron {
-      color: var(--moss);
-      transform: translateX(0.25rem);
+    .quoteIcon {
+      transform: rotate(45deg);
+      background-color: var(--leaf);
+      color: var(--soil);
     }
   }
 
-  &:active {
-    transform: scale(0.98);
-  }
+  @include focus-ring;
+}
+
+.quoteIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(251, 248, 241, 0.14);
+  transition: transform 500ms $ease-spring, background-color 300ms $ease-out, color 300ms $ease-out;
 }
 
 .chevron {
   width: 1rem;
   height: 1rem;
-  color: var(--clay);
-  transition: all $duration-fast $ease-out;
 }

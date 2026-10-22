@@ -1,0 +1,65 @@
+@use '@/styles/abstracts' as *;
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: clamp(2.5rem, 1.5rem + 4vw, 4rem) 0 2.5rem;
+  margin-bottom: clamp(2.5rem, 2rem + 2.5vw, 4.5rem);
+
+  @include mq(lg) {
+    justify-content: center;
+    min-height: min(calc(100svh - 76px), 680px);
+    padding: 3rem 0;
+  }
+}
+
+.inner {
+  @include container;
+  position: relative;
+  z-index: 2;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 38rem;
+}
+
+.eyebrow {
+  @include eyebrow;
+  margin-bottom: 1.5rem;
+}
+
+.index {
+  color: var(--moss);
+  font-variant-numeric: tabular-nums;
+}
+
+.title {
+  font-family: $font-display;
+  font-weight: 400;
+  font-size: clamp(3rem, 1.5rem + 5vw, 6.75rem);
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  color: var(--soil);
+  max-width: 12ch;
+
+  em {
+    font-style: italic;
+    color: var(--moss);
+  }
+}
+
+.subtitle {
+  @include lead;
+  margin-top: 1.75rem;
+  max-width: 32rem;
+}
+
+.extra {
+  margin-top: 2rem;
+  width: 100%;
+}

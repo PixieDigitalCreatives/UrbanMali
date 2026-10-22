@@ -5,8 +5,15 @@
   align-items: center;
   justify-content: center;
   font-family: $font-sans;
-  font-weight: 500;
-  transition: all $duration-fast $ease-out;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  border-radius: $radius-pill;
+  transition:
+    background-color 350ms $ease-out,
+    color 350ms $ease-out,
+    border-color 350ms $ease-out,
+    box-shadow 350ms $ease-out,
+    transform 400ms $ease-spring;
   user-select: none;
   outline: none;
   border-width: 0;
@@ -14,12 +21,12 @@
   border-color: transparent;
 
   &:focus-visible {
-    outline: 2px solid var(--sage-light);
-    outline-offset: 2px;
+    outline: none;
+    box-shadow: 0 0 0 3px var(--beige), 0 0 0 5px var(--moss);
   }
 
   &:active {
-    transform: scale(0.98);
+    transform: scale(0.97);
   }
 
   &:disabled {
@@ -36,17 +43,17 @@
   padding-right: 1rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  border-radius: $radius-button;
+  border-radius: $radius-pill;
   gap: 0.375rem;
 }
 
 .md {
-  height: 2.75rem;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  height: 3rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  border-radius: $radius-button;
+  border-radius: $radius-pill;
   gap: 0.5rem;
 
   @include mq(sm) {
@@ -57,12 +64,12 @@
 
 .lg {
   height: 3.5rem;
-  padding-left: 1.75rem;
-  padding-right: 1.75rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   font-size: 1rem;
   line-height: 1.5rem;
   font-weight: 600;
-  border-radius: $radius-button;
+  border-radius: $radius-pill;
   gap: 0.625rem;
 }
 
@@ -82,22 +89,24 @@
 .primary {
   background-color: var(--moss);
   color: var(--beige);
-  box-shadow: $shadow-sm;
+  box-shadow: 0 14px 28px -16px rgba(31, 94, 70, 0.85);
 
   &:hover {
-    background-color: var(--moss-hover);
+    background-color: var(--soil);
   }
 }
 
 .outline {
-  border-width: 1.5px;
+  border-width: 1px;
   border-style: solid;
-  border-color: var(--moss);
-  color: var(--moss);
+  border-color: rgba(14, 53, 41, 0.22);
+  color: var(--soil);
   background-color: transparent;
 
   &:hover {
-    background-color: rgba(63, 91, 52, 0.1);
+    border-color: var(--soil);
+    background-color: var(--soil);
+    color: var(--beige);
   }
 }
 
@@ -106,7 +115,7 @@
   background-color: transparent;
 
   &:hover {
-    background-color: rgba(230, 216, 189, 0.4);
+    background-color: rgba(231, 222, 198, 0.4);
   }
 }
 
@@ -119,17 +128,17 @@
   box-shadow: $shadow-card;
 
   &:hover {
-    background-color: rgba(230, 216, 189, 0.3);
+    background-color: rgba(231, 222, 198, 0.3);
   }
 }
 
 // Utility class overrides passed via className
 &[class*='border-beige'] {
-  border-color: rgba(244, 236, 221, 0.6) !important;
+  border-color: rgba(245, 240, 228, 0.6) !important;
   color: var(--beige) !important;
 
   &:hover {
-    background-color: rgba(244, 236, 221, 0.1) !important;
+    background-color: rgba(245, 240, 228, 0.1) !important;
   }
 }
 
@@ -138,7 +147,7 @@
 }
 
 &[class*='border-moss/60'] {
-  border-color: rgba(63, 91, 52, 0.6) !important;
+  border-color: rgba(31, 94, 70, 0.6) !important;
 }
 
 &[class*='text-sm'] {

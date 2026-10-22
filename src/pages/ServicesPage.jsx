@@ -3,6 +3,7 @@ import { services } from '../data/services';
 import { ServiceCard } from '../components/cards/ServiceCard';
 import { Chip } from '../components/ui/Chip';
 import { Button } from '../components/ui/Button';
+import { PageHero } from '../components/ui/PageHero';
 import { Link } from 'react-router-dom';
 import { getWhatsAppUrl } from '../data/siteConfig';
 import { MessageSquare } from 'lucide-react';
@@ -34,16 +35,14 @@ export const ServicesPage = () => {
 
   return (
     <div className={styles.page}>
+      <PageHero
+        index="01"
+        eyebrow="Services"
+        title="Our plant care *services*"
+        subtitle="From single-visit maintenance for balcony pots to custom landscaping contracts for gated communities and workspaces."
+        slides={services.map((s) => s.image)}
+      />
       <div className={styles.container}>
-        {/* Page Header */}
-        <div className={styles.header}>
-          <h1 className={styles.title}>
-            Our Plant Care Services
-          </h1>
-          <p className={styles.subtitle}>
-            From single-visit maintenance for balcony pots to custom landscaping contracts for gated communities and workspaces.
-          </p>
-        </div>
 
         {/* Filter Chips */}
         <div className={styles.filterChips}>
@@ -59,14 +58,16 @@ export const ServicesPage = () => {
         </div>
 
         {/* Services Grid (6 across on desktop, 3 on tablet, 2 on mobile) */}
-        <div className={styles.servicesGrid}>
+        <div className={styles.servicesGrid} data-reveal-group>
           {filteredServices.map((service) => (
-            <ServiceCard key={service.id} service={service} />
+            <div key={service.id} data-reveal-item>
+              <ServiceCard service={service} />
+            </div>
           ))}
         </div>
 
         {/* Final CTA Banner */}
-        <div className={styles.ctaCard}>
+        <div className={styles.ctaCard} data-reveal="scale">
           <h2 className={styles.ctaTitle}>
             Not sure which service fits your space?
           </h2>
@@ -89,7 +90,7 @@ export const ServicesPage = () => {
                 variant="outline"
                 size="md"
                 fullWidth
-                icon={<MessageSquare style={{ width: '16px', height: '16px', color: '#3F5B34' }} />}
+                icon={<MessageSquare style={{ width: '16px', height: '16px' }} />}
               >
                 Chat on WhatsApp
               </Button>

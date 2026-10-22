@@ -1,0 +1,54 @@
+@use '@/styles/abstracts' as *;
+
+.root {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.1rem, 0.8rem + 1vw, 1.8rem) 0;
+  background-color: var(--moss);
+  color: var(--beige);
+  border-top: 1px solid rgba(14, 53, 41, 0.2);
+  border-bottom: 1px solid rgba(14, 53, 41, 0.2);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.group {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(1.5rem, 1rem + 2vw, 3rem);
+  padding-right: clamp(1.5rem, 1rem + 2vw, 3rem);
+  font-family: $font-display;
+  font-style: italic;
+  font-size: clamp(2rem, 1.3rem + 2.6vw, 4.25rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+
+  &:nth-child(even) {
+    font-style: normal;
+    color: var(--sage-light);
+  }
+}
+
+.leaf {
+  width: clamp(1.25rem, 1rem + 1vw, 2rem);
+  height: clamp(1.25rem, 1rem + 1vw, 2rem);
+  fill: var(--leaf);
+  flex-shrink: 0;
+}
+
+.leafRib {
+  fill: none;
+  stroke: var(--moss);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+}

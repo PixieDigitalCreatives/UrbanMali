@@ -85,16 +85,16 @@ export const ProductDetailPage = () => {
         {/* Desktop Breadcrumbs */}
         <div className={styles.breadcrumbs}>
           <Link to="/">Home</Link>
-          <ChevronRight style={{ width: '14px', height: '14px', color: '#E6D8BD' }} />
+          <ChevronRight style={{ width: '14px', height: '14px', opacity: 0.4 }} />
           <Link to="/shop">Shop</Link>
-          <ChevronRight style={{ width: '14px', height: '14px', color: '#E6D8BD' }} />
+          <ChevronRight style={{ width: '14px', height: '14px', opacity: 0.4 }} />
           <span className={styles.currentCrumb}>{product.name}</span>
         </div>
 
         <div className={styles.detailGrid}>
           {/* Left Column: Gallery */}
           <div className={styles.galleryCol}>
-            <div className={styles.mainImageFrame}>
+            <div className={styles.mainImageFrame} data-reveal="image" data-creeper="climb" data-creeper-side="left" data-creeper-span="0.85">
               <img
                 src={product.image}
                 alt={product.name}
@@ -112,7 +112,7 @@ export const ProductDetailPage = () => {
             </div>
 
             {/* 4 Thumbnails */}
-            <div className={styles.thumbnailStrip}>
+            <div className={styles.thumbnailStrip} data-reveal="up" data-reveal-delay="0.3">
               {[0, 1, 2, 3].map((idx) => (
                 <button
                   key={idx}
@@ -126,8 +126,8 @@ export const ProductDetailPage = () => {
           </div>
 
           {/* Right Column: Information, Selection & Actions */}
-          <div className={styles.infoCol}>
-            <div>
+          <div className={styles.infoCol} data-reveal-group data-reveal-stagger="0.07">
+            <div data-reveal-item>
               <div className={styles.categoryStockRow}>
                 <span>{product.category}</span>
                 <Badge variant="stock">In stock</Badge>
@@ -141,7 +141,7 @@ export const ProductDetailPage = () => {
             </div>
 
             {/* Price */}
-            <div className={styles.priceRow}>
+            <div className={styles.priceRow} data-reveal-item>
               <span className={styles.priceText}>
                 ₹{selectedVariant.price}
               </span>
@@ -149,22 +149,22 @@ export const ProductDetailPage = () => {
             </div>
 
             {/* Care Row */}
-            <div className={styles.careGrid}>
+            <div className={styles.careGrid} data-reveal-item>
               <div className={styles.careItem}>
                 <div className={styles.careIconWrap}>
-                  <Sun style={{ width: '16px', height: '16px', color: '#2B2118' }} />
+                  <Sun style={{ width: '16px', height: '16px', color: '#0E3529' }} />
                 </div>
                 <span className={styles.careLabel}>{product.sunlight}</span>
               </div>
               <div className={styles.careItem}>
                 <div className={styles.careIconWrap}>
-                  <Droplets style={{ width: '16px', height: '16px', color: '#2B2118' }} />
+                  <Droplets style={{ width: '16px', height: '16px', color: '#0E3529' }} />
                 </div>
                 <span className={styles.careLabel}>{product.watering}</span>
               </div>
               <div className={styles.careItem}>
                 <div className={styles.careIconWrap}>
-                  <Sparkles style={{ width: '16px', height: '16px', color: '#2B2118' }} />
+                  <Sparkles style={{ width: '16px', height: '16px', color: '#0E3529' }} />
                 </div>
                 <span className={styles.careLabel}>{product.careLevel}</span>
               </div>
@@ -238,7 +238,7 @@ export const ProductDetailPage = () => {
                   variant="outline"
                   size="lg"
                   fullWidth
-                  icon={<MessageSquare style={{ width: '20px', height: '20px', color: '#3F5B34' }} />}
+                  icon={<MessageSquare style={{ width: '20px', height: '20px', color: '#1F5E46' }} />}
                   style={{ height: '56px' }}
                 >
                   Enquire on WhatsApp
@@ -290,12 +290,14 @@ export const ProductDetailPage = () => {
         {/* Related Products */}
         {relatedProducts.length > 0 && (
           <div className={styles.relatedSection}>
-            <h2 className={styles.relatedTitle}>
-              You May Also Like
+            <h2 className={styles.relatedTitle} data-reveal="up">
+              You may also <em>like</em>
             </h2>
-            <div className={styles.relatedGrid}>
+            <div className={styles.relatedGrid} data-reveal-group>
               {relatedProducts.map((rel) => (
-                <ProductCard key={rel.id} product={rel} />
+                <div key={rel.id} data-reveal-item>
+                  <ProductCard product={rel} />
+                </div>
               ))}
             </div>
           </div>
@@ -324,8 +326,8 @@ export const ProductDetailPage = () => {
             variant="outline"
             size="pill"
             fullWidth
-            icon={<MessageSquare style={{ width: '16px', height: '16px', color: '#3F5B34' }} />}
-            style={{ height: '48px', fontSize: '0.875rem', borderColor: 'rgba(63, 91, 52, 0.6)', color: '#2B2118' }}
+            icon={<MessageSquare style={{ width: '16px', height: '16px', color: '#1F5E46' }} />}
+            style={{ height: '48px', fontSize: '0.875rem', borderColor: 'rgba(31, 94, 70, 0.6)', color: '#0E3529' }}
           >
             Enquire on WhatsApp
           </Button>

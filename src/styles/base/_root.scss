@@ -11,9 +11,11 @@
   --sand: #{$color-sand};
   --moss: #{$color-moss};
   --moss-hover: #{$color-moss-hover};
+  --forest: #{$color-forest};
   --sage: #{$color-sage};
   --sage-light: #{$color-sage-light};
   --leaf: #{$color-leaf};
+  --terracotta: #{$color-terracotta};
   --brick: #{$color-brick};
 
   // Badges
@@ -32,6 +34,13 @@
   --radius-pincode: #{$radius-pincode};
   --radius-input: #{$radius-input};
   --radius-pill: #{$radius-pill};
+
+  // Typography & rhythm
+  --font-display: #{$font-display};
+  --font-sans: #{$font-sans};
+  --gutter: #{$gutter};
+  --section-y: #{$section-y};
+  --ease-out-expo: #{$ease-expo-out};
 
   // Shadows
   --shadow-card: #{$shadow-card};

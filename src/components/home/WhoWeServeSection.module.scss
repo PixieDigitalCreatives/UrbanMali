@@ -1,81 +1,113 @@
 @use '@/styles/abstracts' as *;
 
-.grid {
+.list {
+  border-top: 1px solid rgba(14, 53, 41, 0.16);
+}
+
+.row {
+  position: relative;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-
-  @include mq(sm) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @include mq(lg) {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-
-.card {
-  background-color: var(--card);
-  border-radius: $radius-card;
-  border: 1px solid var(--sand);
-  box-shadow: $shadow-card;
-  padding: 1.25rem;
-  display: flex;
+  grid-template-columns: 2.5rem minmax(0, 1fr) auto;
+  grid-template-areas:
+    'index title icon'
+    '. subtitle icon';
   align-items: center;
-  gap: 1rem;
-  transition: all $duration-normal $ease-out;
+  column-gap: 1rem;
+  row-gap: 0.25rem;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid rgba(14, 53, 41, 0.16);
+  isolation: isolate;
+  overflow: hidden;
 
-  @include mq(sm) {
-    align-items: flex-start;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: var(--moss);
+    transform: translateY(101%);
+    transition: transform 700ms $ease-expo-out;
   }
 
-  @include mq(lg) {
-    flex-direction: column;
+  @include mq(md) {
+    grid-template-columns: 4rem minmax(0, 1fr) minmax(0, 18rem) 3.5rem;
+    grid-template-areas: 'index title subtitle icon';
+    column-gap: 2rem;
+    padding: 1.6rem 1.25rem;
   }
 
-  &:hover {
-    transform: translateY(-0.25rem);
-    box-shadow: $shadow-lift;
+  @media (hover: hover) {
+    &:hover {
+      &::before {
+        transform: translateY(0);
+      }
+
+      .index,
+      .subtitle {
+        color: rgba(245, 240, 228, 0.75);
+      }
+
+      .title {
+        color: var(--beige);
+        font-style: italic;
+        transform: translateX(0.75rem);
+      }
+
+      .iconWrapper {
+        background-color: var(--leaf);
+        color: var(--soil);
+        transform: rotate(-12deg);
+      }
+    }
   }
 }
 
-.iconWrapper {
-  width: 3rem;
-  height: 3rem;
-  border-radius: $radius-input;
-  background-color: rgba(221, 231, 207, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  border: 1px solid var(--sand);
-
-  svg {
-    width: 1.5rem;
-    height: 1.5rem;
-    color: var(--moss);
-  }
-}
-
-.content {
-  flex: 1;
+.index {
+  grid-area: index;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--clay);
+  font-variant-numeric: tabular-nums;
+  transition: color 400ms $ease-out;
 }
 
 .title {
-  font-family: $font-sans;
-  font-weight: 600;
+  grid-area: title;
+  font-family: $font-display;
+  font-size: clamp(2.4rem, 1.5rem + 3.6vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
   color: var(--soil);
-  font-size: 1rem;
-  line-height: 1.5rem;
+  transition: color 400ms $ease-out, transform 700ms $ease-expo-out;
 }
 
 .subtitle {
-  font-size: 0.75rem;
+  grid-area: subtitle;
+  font-size: 0.9rem;
   color: var(--clay);
-  margin-top: 0.25rem;
-  line-height: 1.375;
+  transition: color 400ms $ease-out;
+}
 
-  @include mq(sm) {
-    font-size: 13px;
+.iconWrapper {
+  grid-area: icon;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--sage-light);
+  color: var(--moss);
+  transition: background-color 400ms $ease-out, color 400ms $ease-out, transform 700ms $ease-spring;
+
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  @include mq(md) {
+    width: 3.5rem;
+    height: 3.5rem;
   }
 }

@@ -2,32 +2,12 @@
 
 .page {
   min-height: 100vh;
-  background-color: var(--beige, #F4ECDD);
-  padding-top: 2rem;
-  padding-bottom: 3rem;
+  padding-bottom: clamp(5rem, 4rem + 4vw, 9rem);
   text-align: left;
-
-  @include respond-to('sm') {
-    padding-top: 3rem;
-  }
 }
 
 .container {
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-
-  @include respond-to('sm') {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-
-  @include respond-to('lg') {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
+  @include container;
 }
 
 .header {
@@ -38,7 +18,7 @@
   font-family: $font-heading;
   font-size: 1.875rem;
   font-weight: 600;
-  color: var(--soil, #2B2118);
+  color: var(--soil, #0E3529);
 
   @include respond-to('sm') {
     font-size: 2.25rem;
@@ -50,7 +30,7 @@
 }
 
 .subtitle {
-  color: var(--clay, #8B6B4A);
+  color: var(--clay, #5F7268);
   font-size: 0.875rem;
   margin-top: 0.5rem;
   max-width: 42rem;
@@ -64,7 +44,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  margin-bottom: 4rem;
+  margin-bottom: clamp(4rem, 3rem + 4vw, 7rem);
 
   @include respond-to('lg') {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -72,28 +52,13 @@
 }
 
 .tableCard {
-  background-color: var(--card, #FAF5EA);
-  border-radius: $radius-card;
-  border: 1px solid var(--sand, #E6D8BD);
-  box-shadow: $shadow-card;
-  padding: 1.5rem;
-  margin-bottom: 3rem;
-
-  @include respond-to('sm') {
-    padding: 2.5rem;
-  }
+  margin-bottom: clamp(4rem, 3rem + 4vw, 7rem);
 }
 
 .tableTitle {
-  font-family: $font-heading;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--soil, #2B2118);
-  margin-bottom: 1.5rem;
-
-  @include respond-to('sm') {
-    font-size: 1.5rem;
-  }
+  @include display($type-h2);
+  max-width: 14ch;
+  margin-bottom: 2.5rem;
 }
 
 .tableWrap {
@@ -102,38 +67,58 @@
 
 .table {
   width: 100%;
+  min-width: 34rem;
   text-align: left;
-  font-size: 0.875rem;
+  font-size: 0.95rem;
   border-collapse: collapse;
 
   th {
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--sand, #E6D8BD);
-    color: var(--clay, #8B6B4A);
-    font-size: 0.75rem;
+    padding: 0 1rem 1.1rem 0;
+    border-bottom: 1px solid var(--soil);
+    color: var(--clay);
+    font-size: 0.68rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-weight: 600;
+    letter-spacing: 0.16em;
+    font-weight: 700;
 
     &.thCol {
-      color: var(--soil, #2B2118);
+      color: var(--soil);
     }
   }
 
   td {
-    padding-top: 0.875rem;
-    padding-bottom: 0.875rem;
-    border-bottom: 1px solid rgba(230, 216, 189, 0.5);
-    color: var(--soil, #2B2118);
+    padding: 1.25rem 1rem 1.25rem 0;
+    border-bottom: 1px solid rgba(14, 53, 41, 0.12);
+    color: var(--soil);
+    vertical-align: middle;
 
     &.tdMuted {
-      color: var(--clay, #8B6B4A);
+      color: var(--brown);
     }
 
     &.tdAttr {
-      font-weight: 500;
+      font-family: $font-display;
+      font-size: 1.35rem;
+      line-height: 1.2;
     }
   }
+
+  tbody tr {
+    transition: background-color 300ms $ease-out;
+
+    &:hover {
+      background-color: rgba(220, 232, 223, 0.45);
+    }
+  }
+}
+
+.check {
+  width: 1.6rem;
+  height: 1.6rem;
+  padding: 0.3rem;
+  border-radius: 50%;
+  background-color: var(--moss);
+  color: var(--beige);
 }
 
 .tableNote {
@@ -141,46 +126,50 @@
   align-items: flex-start;
   gap: 0.625rem;
   margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(230, 216, 189, 0.6);
-  font-size: 0.75rem;
-  color: var(--clay, #8B6B4A);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--clay);
+  max-width: 40rem;
 }
 
 .commercialCard {
-  background-color: rgba(230, 216, 189, 0.3);
-  border-radius: $radius-card;
-  border: 1px solid var(--sand, #E6D8BD);
-  padding: 1.5rem;
+  border-radius: $radius-frame;
+  padding: clamp(2rem, 1.5rem + 3vw, 4rem);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: 2rem;
+  background:
+    radial-gradient(70% 120% at 100% 0%, rgba(74, 139, 110, 0.4), transparent 60%),
+    var(--soil);
+  color: var(--beige);
 
-  @include respond-to('sm') {
+  @include respond-to('md') {
     flex-direction: row;
-    padding: 2rem;
+    align-items: center;
+  }
+
+  button {
+    background-color: var(--leaf);
+    color: var(--soil);
+
+    &:hover {
+      background-color: var(--beige);
+    }
   }
 }
 
 .commercialTitle {
-  font-family: $font-heading;
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--soil, #2B2118);
-
-  @include respond-to('sm') {
-    font-size: 1.25rem;
-  }
+  font-family: $font-display;
+  font-size: clamp(1.8rem, 1.3rem + 1.8vw, 2.9rem);
+  line-height: 1.05;
+  color: var(--beige);
+  max-width: 22ch;
 }
 
 .commercialSubtitle {
-  font-size: 0.75rem;
-  color: var(--clay, #8B6B4A);
-  margin-top: 0.25rem;
-
-  @include respond-to('sm') {
-    font-size: 0.875rem;
-  }
+  font-size: 0.95rem;
+  color: rgba(245, 240, 228, 0.7);
+  margin-top: 0.75rem;
 }

@@ -28,7 +28,7 @@ export const plans: Plan[] = [
     title: 'Society / Office Plan',
     audience: 'Residential Communities, Corporate & Retail',
     statusText: 'Plan details coming soon',
-    image: '/images/plan-society-garden.jpg',
+    image: '/images/service-society-office.jpg',
     description: 'Complete groundskeeping, lobby plant rotations, and common area greenery maintenance with supervisor oversight.',
     features: [
       'Tailored frequency (2x weekly to full-time presence)',

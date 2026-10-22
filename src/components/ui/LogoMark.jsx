@@ -4,10 +4,10 @@ import styles from './LogoMark.module.scss';
 
 export const LogoMark = ({ variant = 'dark', className = '' }) => {
   const isLight = variant === 'light';
-  const primaryColor = isLight ? '#F4ECDD' : '#3F5B34';
-  const secondaryColor = isLight ? '#E6D8BD' : '#2B2118';
-  const leafAccent = isLight ? '#A9BE8F' : '#3F5B34';
-  const ruleColor = isLight ? '#8B6B4A' : '#C9A87C';
+  const primaryColor = isLight ? '#F5F0E4' : '#1F5E46';
+  const secondaryColor = isLight ? '#E7DEC6' : '#0E3529';
+  const leafAccent = isLight ? '#8DB8A2' : '#1F5E46';
+  const ruleColor = isLight ? '#5F7268' : '#CDB77E';
 
   return (
     <Link to="/" className={`${styles.link} ${className}`}>
@@ -36,7 +36,7 @@ export const LogoMark = ({ variant = 'dark', className = '' }) => {
             />
             <path
               d="M7 15C13 11 17 6 21 3C21 8 18 13 14 16"
-              stroke={isLight ? '#F4ECDD' : '#5E7F4A'}
+              stroke={isLight ? '#F5F0E4' : '#4A8B6E'}
               strokeWidth="1.5"
               strokeLinecap="round"
             />
@@ -53,7 +53,7 @@ export const LogoMark = ({ variant = 'dark', className = '' }) => {
         <div className={styles.rule} style={{ backgroundColor: ruleColor }} />
         <span
           className={styles.tagline}
-          style={{ color: isLight ? '#DDE7CF' : '#8B6B4A' }}
+          style={{ color: isLight ? '#DCE8DF' : '#5F7268' }}
         >
           BRING NATURE HOME
         </span>

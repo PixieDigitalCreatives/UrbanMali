@@ -3,7 +3,7 @@
 .overlay {
   position: fixed;
   inset: 0;
-  z-index: 50;
+  z-index: z('modal');
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -19,9 +19,9 @@
 .backdrop {
   position: fixed;
   inset: 0;
-  background-color: rgba(43, 33, 24, 0.4);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background-color: rgba(14, 53, 41, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   transition: opacity $duration-fast $ease-out;
 }
 
@@ -29,19 +29,19 @@
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: 28rem;
+  max-width: 30rem;
   background-color: var(--card);
-  border-top-left-radius: $radius-card;
-  border-top-right-radius: $radius-card;
-  border: 1px solid var(--sand);
-  box-shadow: $shadow-2xl;
-  padding: 1.5rem;
+  border-top-left-radius: $radius-frame;
+  border-top-right-radius: $radius-frame;
+  border: 1px solid rgba(14, 53, 41, 0.08);
+  box-shadow: 0 40px 80px -30px rgba(14, 53, 41, 0.5);
+  padding: 1.75rem;
   max-height: 90vh;
   overflow-y: auto;
   animation: slideUp $duration-normal $ease-out;
 
   @include mq(sm) {
-    border-radius: $radius-card;
+    border-radius: $radius-frame;
     animation: scaleIn $duration-normal $ease-out;
   }
 }
@@ -52,14 +52,14 @@
   justify-content: space-between;
   padding-bottom: 0.75rem;
   margin-bottom: 1rem;
-  border-bottom: 1px solid rgba(230, 216, 189, 0.6);
+  border-bottom: 1px solid rgba(231, 222, 198, 0.6);
 }
 
 .title {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
+  font-size: 1.75rem;
+  line-height: 1.1;
   font-family: $font-heading;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--soil);
 }
 
@@ -70,7 +70,7 @@
   transition: color $duration-fast $ease-out, background-color $duration-fast $ease-out;
 
   &:hover {
-    background-color: rgba(230, 216, 189, 0.4);
+    background-color: rgba(231, 222, 198, 0.4);
     color: var(--soil);
   }
 }

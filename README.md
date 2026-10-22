@@ -24,7 +24,7 @@
 - **🛒 Cart & Checkout State**: Full client-side shopping cart with localStorage persistence, coupon support, and multi-step checkout with order confirmation.
 - **💬 Instant Quote Modal**: Quick consultation and custom quotation requests.
 - **📱 Fully Responsive**: Fluid layouts adapted across 360px mobile, 768px tablet, and 1280px+ desktop viewports with a dedicated mobile bottom navigation bar.
-- **🎨 Bespoke Design System**: Built on warm organic hues (*Soil, Moss, Clay, Sand, Beige*) and expressive typography (*Fraunces Serif* & *Inter Sans*).
+- **🎨 Bespoke Design System**: Built on warm organic hues (*Soil, Moss, Clay, Sand, Beige*) and editorial typography (*Instrument Serif* display & *Manrope* text), with a living creeper layer, leaf cursor and GSAP scroll-triggered motion.
 
 ---
 

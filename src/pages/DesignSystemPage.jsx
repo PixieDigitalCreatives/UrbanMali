@@ -20,18 +20,18 @@ import {
 import styles from './DesignSystemPage.module.scss';
 
 const SWATCHES = [
-  { name: 'soil', hex: '#2B2118', text: '#FAF5EA' },
-  { name: 'brown', hex: '#5A4330', text: '#FAF5EA' },
-  { name: 'clay', hex: '#8B6B4A', text: '#FAF5EA' },
-  { name: 'tan', hex: '#C9A87C', text: '#2B2118' },
-  { name: 'beige', hex: '#F4ECDD', text: '#2B2118', border: true },
-  { name: 'card', hex: '#FAF5EA', text: '#2B2118', border: true },
-  { name: 'sand', hex: '#E6D8BD', text: '#2B2118', border: true },
-  { name: 'moss', hex: '#3F5B34', text: '#FAF5EA' },
-  { name: 'moss-hover', hex: '#5E7F4A', text: '#FAF5EA' },
-  { name: 'sage', hex: '#A9BE8F', text: '#2B2118' },
-  { name: 'sage-light', hex: '#DDE7CF', text: '#2B2118', border: true },
-  { name: 'leaf', hex: '#C8D96A', text: '#2B2118' },
+  { name: 'soil', hex: '#0E3529', text: '#FBF8F1' },
+  { name: 'brown', hex: '#2E4A40', text: '#FBF8F1' },
+  { name: 'clay', hex: '#5F7268', text: '#FBF8F1' },
+  { name: 'tan', hex: '#CDB77E', text: '#0E3529' },
+  { name: 'beige', hex: '#F5F0E4', text: '#0E3529', border: true },
+  { name: 'card', hex: '#FBF8F1', text: '#0E3529', border: true },
+  { name: 'sand', hex: '#E7DEC6', text: '#0E3529', border: true },
+  { name: 'moss', hex: '#1F5E46', text: '#FBF8F1' },
+  { name: 'moss-hover', hex: '#4A8B6E', text: '#FBF8F1' },
+  { name: 'sage', hex: '#8DB8A2', text: '#0E3529' },
+  { name: 'sage-light', hex: '#DCE8DF', text: '#0E3529', border: true },
+  { name: 'gold', hex: '#B6994F', text: '#0E3529' },
 ];
 
 export const DesignSystemPage = () => {
@@ -45,7 +45,7 @@ export const DesignSystemPage = () => {
           The UrbanMaali Design System
         </h1>
         <p className={styles.desc}>
-          Pixel-exact implementation of approved color swatches, Fraunces serif typography, Inter UI tokens, and interactive components.
+          Brand color swatches, Instrument Serif display typography, Manrope UI text, and interactive components.
         </p>
       </div>
 
@@ -54,11 +54,11 @@ export const DesignSystemPage = () => {
         <h2 className={styles.sectionHeading}>1. Brand Logo Marks</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
           <Card style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.75rem' }}>
-            <span style={{ fontSize: '12px', color: 'var(--clay, #8B6B4A)' }}>Standard (Beige page background)</span>
+            <span style={{ fontSize: '12px', color: 'var(--clay, #5F7268)' }}>Standard (Beige page background)</span>
             <LogoMark variant="dark" />
           </Card>
-          <div style={{ backgroundColor: 'var(--soil, #2B2118)', borderRadius: '20px', padding: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.75rem' }}>
-            <span style={{ fontSize: '12px', color: 'rgba(230, 216, 189, 0.6)' }}>Light variant (Soil footer background)</span>
+          <div style={{ backgroundColor: 'var(--soil, #0E3529)', borderRadius: '20px', padding: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.75rem' }}>
+            <span style={{ fontSize: '12px', color: 'rgba(231, 222, 198, 0.6)' }}>Light variant (Soil footer background)</span>
             <LogoMark variant="light" />
           </div>
         </div>
@@ -77,11 +77,11 @@ export const DesignSystemPage = () => {
                 className={styles.swatchCircle}
                 style={{
                   backgroundColor: s.hex,
-                  border: s.border ? '1px solid var(--sand, #E6D8BD)' : 'none',
+                  border: s.border ? '1px solid var(--sand, #E7DEC6)' : 'none',
                 }}
               />
-              <span style={{ fontSize: '12px', fontWeight: 600, color: 'var(--soil, #2B2118)', textTransform: 'capitalize' }}>{s.name}</span>
-              <span style={{ fontSize: '11px', color: 'var(--clay, #8B6B4A)', fontFamily: 'monospace', marginTop: '2px' }}>{s.hex}</span>
+              <span style={{ fontSize: '12px', fontWeight: 600, color: 'var(--soil, #0E3529)', textTransform: 'capitalize' }}>{s.name}</span>
+              <span style={{ fontSize: '11px', color: 'var(--clay, #5F7268)', fontFamily: 'monospace', marginTop: '2px' }}>{s.hex}</span>
             </div>
           ))}
         </div>
@@ -92,16 +92,16 @@ export const DesignSystemPage = () => {
         <h2 className={styles.sectionHeading}>3. Typography Specimens</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
           <Card style={{ padding: '1.5rem' }}>
-            <span style={{ fontSize: '12px', color: 'var(--clay, #8B6B4A)', display: 'block', marginBottom: '0.5rem', fontFamily: 'monospace' }}>Headings: Fraunces (serif)</span>
-            <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2.25rem', color: 'var(--soil, #2B2118)', fontWeight: 600, marginBottom: '0.5rem' }}>Aa Bb Gg</div>
-            <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', color: 'var(--soil, #2B2118)', fontWeight: 500 }}>
+            <span style={{ fontSize: '12px', color: 'var(--clay, #5F7268)', display: 'block', marginBottom: '0.5rem', fontFamily: 'monospace' }}>Headings: Instrument Serif (display)</span>
+            <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2.25rem', color: 'var(--soil, #0E3529)', fontWeight: 600, marginBottom: '0.5rem' }}>Aa Bb Gg</div>
+            <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', color: 'var(--soil, #0E3529)', fontWeight: 500 }}>
               "Bring Nature Home to your doorstep"
             </p>
           </Card>
           <Card style={{ padding: '1.5rem' }}>
-            <span style={{ fontSize: '12px', color: 'var(--clay, #8B6B4A)', display: 'block', marginBottom: '0.5rem', fontFamily: 'monospace' }}>Body & UI: Inter (sans)</span>
-            <div style={{ fontFamily: 'var(--font-sans)', fontSize: '2.25rem', color: 'var(--soil, #2B2118)', fontWeight: 700, marginBottom: '0.5rem' }}>Aa Bb Gg</div>
-            <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.875rem', color: 'var(--clay, #8B6B4A)', lineHeight: 1.625 }}>
+            <span style={{ fontSize: '12px', color: 'var(--clay, #5F7268)', display: 'block', marginBottom: '0.5rem', fontFamily: 'monospace' }}>Body & UI: Manrope (sans)</span>
+            <div style={{ fontFamily: 'var(--font-sans)', fontSize: '2.25rem', color: 'var(--soil, #0E3529)', fontWeight: 700, marginBottom: '0.5rem' }}>Aa Bb Gg</div>
+            <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.875rem', color: 'var(--clay, #5F7268)', lineHeight: 1.625 }}>
               Your urban gardening partner for homes, societies, offices and more. Clean, accessible, and responsive.
             </p>
           </Card>
@@ -141,7 +141,7 @@ export const DesignSystemPage = () => {
           <Input label="Default Input" placeholder="Enter your name" />
           <Input label="Input with Error" placeholder="Enter pincode" error="Please enter a valid 6-digit pincode" />
           <div>
-            <label style={{ fontSize: '12px', fontWeight: 600, color: 'var(--soil, #2B2118)', display: 'block', marginBottom: '0.5rem' }}>Chip Variants</label>
+            <label style={{ fontSize: '12px', fontWeight: 600, color: 'var(--soil, #0E3529)', display: 'block', marginBottom: '0.5rem' }}>Chip Variants</label>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
               <Chip selected={true}>Selected Solid (Home)</Chip>
               <Chip selected={false}>Default Chip (Society)</Chip>

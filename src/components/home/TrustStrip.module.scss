@@ -1,135 +1,270 @@
 @use '@/styles/abstracts' as *;
 
-.wrapper {
-  width: 100%;
-  background-color: rgba(250, 245, 234, 0.9);
-  border-top: 1px solid rgba(230, 216, 189, 0.7);
-  border-bottom: 1px solid rgba(230, 216, 189, 0.7);
-  padding: 1.25rem 0;
-
-  @include mq(sm) {
-    padding: 1.75rem 0;
-  }
-}
-
-.inner {
-  max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-
-  @include mq(sm) {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-
-  @include mq(lg) {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
-
+// Bento: tall photo card on the left, two squares, one wide card beneath
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
-  align-items: center;
+  gap: 1rem;
 
-  @include mq(sm) {
-    gap: 1.5rem;
+  @include mq(md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   @include mq(lg) {
-    gap: 2rem;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.25rem;
   }
 }
 
-.item {
+.card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0.375rem;
-  user-select: none;
+  justify-content: space-between;
+  gap: 2.5rem;
+  min-height: 17rem;
+  padding: clamp(1.5rem, 1.2rem + 1vw, 2.25rem);
+  border-radius: 28px;
+  transition: transform 700ms $ease-expo-out, box-shadow 500ms $ease-out;
 
-  @include mq(sm) {
-    flex-direction: row;
-    text-align: left;
-    gap: 0.875rem;
-  }
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 34px 60px -34px rgba(14, 53, 41, 0.55);
 
-  &:hover .iconWrapper {
-    transform: scale(1.05);
-  }
-}
+      .iconWrapper {
+        transform: rotate(-14deg) scale(1.08);
+      }
 
-.iconWrapper {
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: $radius-full;
-  background-color: var(--sage-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  border: 1px solid var(--sand);
-  transition: transform $duration-fast $ease-out;
-  box-shadow: 0 1px 2px rgba(43, 33, 24, 0.04);
-
-  @include mq(sm) {
-    width: 3.25rem;
-    height: 3.25rem;
-  }
-
-  @include mq(lg) {
-    width: 3.5rem;
-    height: 3.5rem;
-  }
-
-  svg {
-    width: 1.25rem;
-    height: 1.25rem;
-    color: var(--moss);
-
-    @include mq(sm) {
-      width: 1.5rem;
-      height: 1.5rem;
+      .photoBg img {
+        transform: scale(1.06);
+      }
     }
   }
 }
 
-.textGroup {
-  display: flex;
-  flex-direction: column;
+// --- Variants from the brand palette ---
+.photo {
+  color: var(--beige);
+  min-height: 24rem;
+
+  @include mq(md) {
+    grid-row: span 2;
+  }
+
+  .iconWrapper {
+    background: rgba(251, 248, 241, 0.16);
+    color: var(--beige);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .title em,
+  .index {
+    color: var(--sand);
+  }
+
+  .detail {
+    color: rgba(245, 240, 228, 0.82);
+  }
 }
 
-.line1 {
-  font-size: 11px;
-  line-height: 1.25;
-  font-weight: 600;
+.photoBg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  min-height: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(14, 53, 41, 0.25) 0%, rgba(14, 53, 41, 0.15) 40%, rgba(14, 53, 41, 0.9) 100%);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s $ease-expo-out;
+  }
+}
+
+.sage {
+  background-color: var(--sage-light);
+  color: var(--soil);
+}
+
+.gold {
+  background-color: var(--leaf);
   color: var(--soil);
 
-  @include mq(sm) {
-    font-size: 0.75rem;
+  .iconWrapper {
+    background: rgba(14, 53, 41, 0.12);
+    color: var(--soil);
   }
 
-  @include mq(lg) {
-    font-size: 0.875rem;
+  .title em {
+    color: var(--soil);
+  }
+
+  .detail {
+    color: rgba(14, 53, 41, 0.78);
   }
 }
 
-.line2 {
-  font-size: 10px;
-  line-height: 1.25;
-  font-weight: 500;
-  color: var(--clay);
+.emerald {
+  background:
+    radial-gradient(70% 120% at 100% 0%, rgba(74, 139, 110, 0.55), transparent 60%),
+    var(--moss);
+  color: var(--beige);
 
-  @include mq(sm) {
-    font-size: 0.75rem;
+  @include mq(md) {
+    grid-column: span 2;
   }
 
-  @include mq(lg) {
-    font-size: 0.875rem;
+  .iconWrapper {
+    background: rgba(251, 248, 241, 0.14);
+    color: var(--beige);
+  }
+
+  .title em {
+    color: var(--sand);
+  }
+
+  .index {
+    color: var(--sage);
+  }
+
+  .detail {
+    color: rgba(245, 240, 228, 0.8);
+  }
+
+  .body {
+    @include mq(md) {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-areas:
+        'title cta'
+        'detail cta';
+      align-items: end;
+      column-gap: 2rem;
+    }
+  }
+
+  .title {
+    grid-area: title;
+  }
+
+  .detail {
+    grid-area: detail;
+  }
+
+  .cta {
+    grid-area: cta;
+  }
+}
+
+// --- Content ---
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.iconWrapper {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card);
+  color: var(--moss);
+  transition: transform 700ms $ease-spring;
+
+  svg {
+    width: 1.35rem;
+    height: 1.35rem;
+  }
+}
+
+.index {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--clay);
+  font-variant-numeric: tabular-nums;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: clamp(1.9rem, 1.4rem + 1.4vw, 2.75rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: inherit;
+
+  em {
+    font-style: italic;
+    color: var(--moss);
+  }
+}
+
+.detail {
+  max-width: 26rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--brown);
+}
+
+.cta {
+  justify-self: end;
+  align-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  height: 3.1rem;
+  margin-top: 0.75rem;
+  padding: 0 0.35rem 0 1.4rem;
+  border-radius: $radius-pill;
+  background-color: var(--beige);
+  color: var(--soil);
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background-color 350ms $ease-out;
+
+  &:hover {
+    background-color: var(--leaf);
+
+    .ctaIcon {
+      transform: rotate(45deg);
+    }
+  }
+
+  @include focus-ring;
+}
+
+.ctaIcon {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--moss);
+  color: var(--beige);
+  transition: transform 500ms $ease-spring;
+
+  svg {
+    width: 1rem;
+    height: 1rem;
   }
 }

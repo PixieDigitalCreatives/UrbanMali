@@ -1,0 +1,13 @@
+@use '@/styles/abstracts' as *;
+
+.canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: z('creeper');
+  pointer-events: none;
+
+  @media print {
+    display: none;
+  }
+}

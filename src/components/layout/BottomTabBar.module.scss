@@ -6,11 +6,11 @@
   left: 0;
   right: 0;
   z-index: z('fixed');
-  background-color: rgba(250, 245, 234, 0.98);
+  background-color: rgba(251, 248, 241, 0.98);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-top: 1px solid var(--sand);
-  box-shadow: 0 -4px 12px rgba(43, 33, 24, 0.05);
+  box-shadow: 0 -4px 12px rgba(14, 53, 41, 0.05);
   height: 4rem;
   padding-bottom: env(safe-area-inset-bottom, 0);
   display: flex;

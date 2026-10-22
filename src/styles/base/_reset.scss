@@ -9,7 +9,7 @@
   box-sizing: border-box;
   border-width: 0;
   border-style: solid;
-  border-color: var(--sand, #E6D8BD);
+  border-color: var(--sand, #E7DEC6);
 }
 
 html {
@@ -17,7 +17,7 @@ html {
   -webkit-text-size-adjust: 100%;
   -moz-tab-size: 4;
   tab-size: 4;
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-feature-settings: normal;
   font-variation-settings: normal;
   -webkit-tap-highlight-color: transparent;
@@ -27,15 +27,15 @@ body {
   margin: 0;
   min-height: 100vh;
   line-height: inherit;
-  background-color: var(--beige, #F4ECDD);
-  color: var(--soil, #2B2118);
+  background-color: var(--beige, #F5F0E4);
+  color: var(--soil, #0E3529);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background-color: var(--sage-light, #DDE7CF);
-  color: var(--moss, #3F5B34);
+  background-color: var(--sage-light, #DCE8DF);
+  color: var(--moss, #1F5E46);
 }
 
 // Resets margins
@@ -97,7 +97,7 @@ textarea {
 input::placeholder,
 textarea::placeholder {
   opacity: 1;
-  color: var(--clay, #8B6B4A);
+  color: var(--clay, #5F7268);
 }
 
 // Table resets

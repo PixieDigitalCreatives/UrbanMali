@@ -105,3 +105,76 @@
 @mixin safe-area($property: padding-bottom, $extra: 0px) {
   #{$property}: calc(#{$extra} + env(safe-area-inset-bottom, 0px));
 }
+
+// ==========================================
+// PREMIUM LAYOUT & TYPE PRIMITIVES
+// ==========================================
+
+// Shared page container with generous gutters (vines live in the gutters)
+@mixin container($max: $container-max) {
+  width: 100%;
+  max-width: calc(#{$max} + (#{$gutter} * 2));
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $gutter;
+  padding-right: $gutter;
+}
+
+// Vertical section rhythm; bottom is optically a touch larger
+@mixin section-pad($scale: 1) {
+  padding-top: calc(#{$section-y} * #{$scale});
+  padding-bottom: calc(#{$section-y} * #{$scale} * 1.08);
+}
+
+// Small uppercase label with an index number, e.g. "(01) Services"
+@mixin eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: $font-sans;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--clay);
+}
+
+// Display serif heading
+@mixin display($size: $type-h2) {
+  font-family: $font-display;
+  font-weight: 400;
+  font-size: $size;
+  line-height: 0.96;
+  letter-spacing: -0.025em;
+  color: var(--soil);
+  text-wrap: balance;
+
+  em {
+    font-style: italic;
+    color: var(--moss);
+  }
+}
+
+// Body copy
+@mixin lead {
+  font-family: $font-sans;
+  font-size: $type-lead;
+  line-height: 1.65;
+  color: var(--brown);
+  max-width: 34rem;
+  text-wrap: pretty;
+}
+
+// Arched window frame for imagery (greenhouse arch)
+@mixin arch-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: $radius-arch;
+  isolation: isolate;
+  transform: translateZ(0);
+}
+
+// Hairline rule
+@mixin hairline($side: bottom, $color: rgba(14, 53, 41, 0.14)) {
+  border-#{$side}: 1px solid $color;
+}

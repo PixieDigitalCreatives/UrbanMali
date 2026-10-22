@@ -1,28 +1,53 @@
 @use '../abstracts/tokens' as *;
 
+html {
+  font-family: $font-sans;
+}
+
 body {
   font-family: $font-sans;
+  font-size: 1rem;
+  font-weight: 450;
   background-color: var(--beige);
   color: var(--soil);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  // The display serif ships one weight; never fake-bold it
+  font-synthesis: none;
 }
 
-// Fraunces for headings
+// Display serif for headings
 h1, h2, h3, h4, h5, h6, .font-heading {
-  font-family: $font-serif;
+  font-family: $font-display;
+  font-weight: 400;
+  letter-spacing: -0.015em;
   color: var(--soil);
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+em {
+  font-style: italic;
+}
+
+// Prices and figures line up
+[class*='price'], [class*='Price'], .tabular {
+  font-variant-numeric: tabular-nums;
 }
 
 // Selection styling
 ::selection {
-  background-color: var(--sage-light);
-  color: var(--moss);
+  background-color: var(--moss);
+  color: var(--beige);
 }
 
 // Scrollbars
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
   height: 8px;
 }
 
@@ -32,7 +57,8 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 
 ::-webkit-scrollbar-thumb {
   background: var(--sand);
-  border-radius: 4px;
+  border-radius: 10px;
+  border: 2px solid var(--beige);
 }
 
 ::-webkit-scrollbar-thumb:hover {

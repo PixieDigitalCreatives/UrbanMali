@@ -2,32 +2,12 @@
 
 .page {
   min-height: 100vh;
-  background-color: var(--beige, #F4ECDD);
-  padding-top: 1.5rem;
-  padding-bottom: 5rem;
+  padding-bottom: clamp(5rem, 4rem + 4vw, 9rem);
   text-align: left;
-
-  @include respond-to('sm') {
-    padding-top: 2.5rem;
-  }
 }
 
 .container {
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-
-  @include respond-to('sm') {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-
-  @include respond-to('lg') {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
+  @include container;
 }
 
 .header {
@@ -38,7 +18,7 @@
   font-family: $font-heading;
   font-size: 1.875rem;
   font-weight: 600;
-  color: var(--soil, #2B2118);
+  color: var(--soil, #0E3529);
 
   @include respond-to('sm') {
     font-size: 2.25rem;
@@ -46,7 +26,7 @@
 }
 
 .subtitle {
-  color: var(--clay, #8B6B4A);
+  color: var(--clay, #5F7268);
   font-size: 0.875rem;
   margin-top: 0.25rem;
 
@@ -66,23 +46,25 @@
   flex: 1;
   display: flex;
   align-items: center;
-  background-color: var(--card, #FAF5EA);
-  border-radius: 14px;
-  padding: 0.625rem 1rem;
-  border: 1px solid var(--sand, #E6D8BD);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  transition: all $duration-fast $ease-out;
+  height: 3.4rem;
+  background-color: rgba(251, 248, 241, 0.75);
+  border-radius: $radius-pill;
+  padding: 0 1.4rem;
+  border: 1px solid rgba(14, 53, 41, 0.14);
+  max-width: 34rem;
+  transition: border-color 300ms $ease-out, box-shadow 300ms $ease-out, background-color 300ms $ease-out;
 
   &:focus-within {
-    border-color: var(--moss, #3F5B34);
-    box-shadow: 0 0 0 2px var(--sage-light, #DDE7CF);
+    border-color: var(--moss);
+    background-color: var(--card);
+    box-shadow: 0 0 0 4px rgba(141, 184, 162, 0.35);
   }
 }
 
 .searchIcon {
   width: 1.25rem;
   height: 1.25rem;
-  color: var(--clay, #8B6B4A);
+  color: var(--clay, #5F7268);
   margin-right: 0.75rem;
   flex-shrink: 0;
 }
@@ -91,33 +73,31 @@
   width: 100%;
   background: transparent;
   border: none;
-  color: var(--soil, #2B2118);
-  font-size: 0.875rem;
+  color: var(--soil, #0E3529);
+  font-size: 0.95rem;
+  font-weight: 500;
   outline: none;
 
   &::placeholder {
-    color: rgba(139, 107, 74, 0.7);
+    color: var(--clay);
   }
 }
 
 .filterBtn {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  background-color: var(--card, #FAF5EA);
-  border: 1px solid var(--sand, #E6D8BD);
+  width: 3.4rem;
+  height: 3.4rem;
+  border-radius: 50%;
+  background-color: var(--soil);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--soil, #2B2118);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  color: var(--beige);
   flex-shrink: 0;
-  cursor: pointer;
-  transition: all $duration-fast $ease-out;
+  transition: background-color 300ms $ease-out, transform 500ms $ease-spring;
 
   &:hover {
-    color: var(--moss, #3F5B34);
-    background-color: rgba(230, 216, 189, 0.3);
+    background-color: var(--moss);
+    transform: rotate(90deg);
   }
 }
 
@@ -127,7 +107,7 @@
   gap: 0.5rem;
   overflow-x: auto;
   padding-bottom: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   user-select: none;
 
   &::-webkit-scrollbar {
@@ -140,15 +120,12 @@
 .productGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 2.5rem 0.9rem;
   margin-bottom: 4rem;
-
-  @include respond-to('sm') {
-    gap: 1.5rem;
-  }
 
   @include respond-to('md') {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3.5rem 1.5rem;
   }
 
   @include respond-to('lg') {
@@ -157,36 +134,34 @@
 }
 
 .emptyState {
-  background-color: var(--card, #FAF5EA);
-  border-radius: $radius-card;
-  border: 1px solid var(--sand, #E6D8BD);
-  padding: 3rem;
+  border-radius: $radius-frame;
+  border: 1px dashed rgba(14, 53, 41, 0.2);
+  padding: clamp(2.5rem, 2rem + 3vw, 5rem) 1.5rem;
   text-align: center;
-  max-width: 28rem;
-  margin: 3rem auto;
+  max-width: 34rem;
+  margin: 2rem auto 4rem;
 }
 
 .emptyIconWrap {
   width: 4rem;
   height: 4rem;
   border-radius: 9999px;
-  background-color: rgba(230, 216, 189, 0.6);
+  background-color: rgba(231, 222, 198, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 1rem;
-  color: var(--clay, #8B6B4A);
+  color: var(--clay, #5F7268);
 }
 
 .emptyTitle {
   font-family: $font-heading;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--soil, #2B2118);
+  font-size: 2rem;
+  color: var(--soil);
 }
 
 .emptyDesc {
-  color: var(--clay, #8B6B4A);
+  color: var(--clay, #5F7268);
   font-size: 0.875rem;
   margin-top: 0.25rem;
   margin-bottom: 1.25rem;
@@ -201,7 +176,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--clay, #8B6B4A);
+  color: var(--clay, #5F7268);
   display: block;
   margin-bottom: 0.5rem;
 }
@@ -218,9 +193,9 @@
   gap: 0.75rem;
   cursor: pointer;
   font-size: 0.875rem;
-  color: var(--soil, #2B2118);
+  color: var(--soil, #0E3529);
 
   input {
-    accent-color: var(--moss, #3F5B34);
+    accent-color: var(--moss, #1F5E46);
   }
 }

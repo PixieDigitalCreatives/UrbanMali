@@ -54,25 +54,25 @@ export const OrderConfirmationPage = () => {
               <div className={`${styles.statusIcon} ${styles.active}`}>
                 <CheckCircle2 style={{ width: '16px', height: '16px' }} />
               </div>
-              <span style={{ fontWeight: 600, color: 'var(--moss, #3F5B34)' }}>Confirmed</span>
+              <span style={{ fontWeight: 600, color: 'var(--moss, #1F5E46)' }}>Confirmed</span>
             </div>
             <div className={styles.statusStep}>
               <div className={`${styles.statusIcon} ${styles.ready}`}>
                 <Package style={{ width: '16px', height: '16px' }} />
               </div>
-              <span style={{ color: 'var(--clay, #8B6B4A)' }}>Packed</span>
+              <span style={{ color: 'var(--clay, #5F7268)' }}>Packed</span>
             </div>
             <div className={styles.statusStep}>
               <div className={`${styles.statusIcon} ${styles.pending}`}>
                 <Truck style={{ width: '16px', height: '16px' }} />
               </div>
-              <span style={{ color: 'var(--clay, #8B6B4A)' }}>On the way</span>
+              <span style={{ color: 'var(--clay, #5F7268)' }}>On the way</span>
             </div>
             <div className={styles.statusStep}>
               <div className={`${styles.statusIcon} ${styles.pending}`}>
                 <Home style={{ width: '16px', height: '16px' }} />
               </div>
-              <span style={{ color: 'var(--clay, #8B6B4A)' }}>Delivered</span>
+              <span style={{ color: 'var(--clay, #5F7268)' }}>Delivered</span>
             </div>
           </div>
         </div>
@@ -80,7 +80,7 @@ export const OrderConfirmationPage = () => {
         {/* Ordered Items Summary */}
         {items.length > 0 && (
           <div className={styles.card} style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-            <h3 className={styles.cardSectionTitle} style={{ paddingBottom: '0.5rem', borderBottom: '1px solid rgba(230, 216, 189, 0.5)' }}>
+            <h3 className={styles.cardSectionTitle} style={{ paddingBottom: '0.5rem', borderBottom: '1px solid rgba(231, 222, 198, 0.5)' }}>
               Items Ordered
             </h3>
             {items.map((it) => (
@@ -88,16 +88,16 @@ export const OrderConfirmationPage = () => {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                   <img src={it.image} alt={it.name} style={{ width: '40px', height: '40px', borderRadius: '8px', objectFit: 'cover' }} />
                   <div>
-                    <span style={{ fontWeight: 600, color: 'var(--soil, #2B2118)', display: 'block' }}>{it.name}</span>
-                    <span style={{ color: 'var(--clay, #8B6B4A)', fontSize: '12px' }}>{it.size} × {it.quantity}</span>
+                    <span style={{ fontWeight: 600, color: 'var(--soil, #0E3529)', display: 'block' }}>{it.name}</span>
+                    <span style={{ color: 'var(--clay, #5F7268)', fontSize: '12px' }}>{it.size} × {it.quantity}</span>
                   </div>
                 </div>
-                <span style={{ fontWeight: 600, color: 'var(--soil, #2B2118)' }}>₹{it.price * it.quantity}</span>
+                <span style={{ fontWeight: 600, color: 'var(--soil, #0E3529)' }}>₹{it.price * it.quantity}</span>
               </div>
             ))}
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.75rem', borderTop: '1px solid rgba(230, 216, 189, 0.5)', fontSize: '0.875rem', fontWeight: 'bold', color: 'var(--soil, #2B2118)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.75rem', borderTop: '1px solid rgba(231, 222, 198, 0.5)', fontSize: '0.875rem', fontWeight: 'bold', color: 'var(--soil, #0E3529)' }}>
               <span>Total Paid</span>
-              <span style={{ color: 'var(--moss, #3F5B34)', fontFamily: 'var(--font-heading)', fontSize: '1rem' }}>₹{grandTotal}</span>
+              <span style={{ color: 'var(--moss, #1F5E46)', fontFamily: 'var(--font-heading)', fontSize: '1rem' }}>₹{grandTotal}</span>
             </div>
           </div>
         )}
@@ -114,7 +114,7 @@ export const OrderConfirmationPage = () => {
               variant="outline"
               size="lg"
               fullWidth
-              icon={<MessageSquare style={{ width: '20px', height: '20px', color: '#3F5B34' }} />}
+              icon={<MessageSquare style={{ width: '20px', height: '20px', color: '#1F5E46' }} />}
             >
               Need Help? Chat on WhatsApp
             </Button>
@@ -122,7 +122,7 @@ export const OrderConfirmationPage = () => {
         </div>
 
         <div style={{ marginTop: '1.5rem' }}>
-          <Link to="/" style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--moss, #3F5B34)', textDecoration: 'none' }}>
+          <Link to="/" style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--moss, #1F5E46)', textDecoration: 'none' }}>
             ← Return to Home
           </Link>
         </div>

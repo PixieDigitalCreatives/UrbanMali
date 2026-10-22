@@ -32,6 +32,9 @@ export const Modal = ({
 
       <div
         className={`${styles.dialog} ${maxWidth}`}
+        role="dialog"
+        aria-modal="true"
+        data-lenis-prevent
       >
         <div className={styles.header}>
           {title ? (

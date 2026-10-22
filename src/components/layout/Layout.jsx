@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import { Header } from './Header';
 import { MobileMenu } from './MobileMenu';
 import { BottomTabBar } from './BottomTabBar';
@@ -9,6 +9,10 @@ import { products } from '../../data/products';
 import { services } from '../../data/services';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import clsx from 'clsx';
+import { SmoothScroll } from '../effects/SmoothScroll';
+import { CreeperCanvas } from '../effects/CreeperCanvas';
+import { LeafCursor } from '../effects/LeafCursor';
+import { initScrollFx } from '../../lib/scrollFx';
 import styles from './Layout.module.scss';
 
 export const Layout = ({ children }) => {
@@ -35,6 +39,15 @@ export const Layout = ({ children }) => {
 
   const location = useLocation();
 
+  // Re-arm scroll reveals for each route once its DOM is in place
+  const rootRef = useRef(null);
+  useLayoutEffect(() => {
+    // reset scroll before measuring so on-screen reveals play on arrival
+    if (window.__lenis) window.__lenis.scrollTo(0, { immediate: true, force: true });
+    else window.scrollTo(0, 0);
+    return initScrollFx(rootRef.current);
+  }, [location.pathname]);
+
   const isDetailOrFlowPage = 
     (location.pathname.startsWith('/services/') && location.pathname !== '/services') ||
     (location.pathname.startsWith('/shop/') && location.pathname !== '/shop') ||
@@ -43,7 +56,13 @@ export const Layout = ({ children }) => {
     location.pathname === '/checkout';
 
   return (
-    <div className={styles.root}>
+    <div ref={rootRef} className={styles.root}>
+      <a href="#main-content" className="skip-link">Skip to content</a>
+      <SmoothScroll />
+      <CreeperCanvas />
+      <LeafCursor />
+      <div className="grain-overlay" aria-hidden="true" />
+
       <div className={clsx(styles.headerContainer, isDetailOrFlowPage && styles.hideOnMobile)}>
         <Header
           onOpenMobileMenu={() => setMobileMenuOpen(true)}
@@ -56,7 +75,7 @@ export const Layout = ({ children }) => {
         onClose={() => setMobileMenuOpen(false)}
       />
 
-      <main className={styles.main}>{children}</main>
+      <main id="main-content" className={styles.main}>{children}</main>
 
       <Footer />
 

@@ -17,7 +17,7 @@
 .stock {
   background-color: var(--sage-light);
   color: var(--moss);
-  border-color: rgba(63, 91, 52, 0.2);
+  border-color: rgba(31, 94, 70, 0.2);
 }
 
 .out {
@@ -39,8 +39,8 @@
 }
 
 .illustrative {
-  background-color: rgba(244, 236, 221, 0.85);
-  color: var(--clay);
+  background-color: rgba(14, 53, 41, 0.35);
+  color: rgba(251, 248, 241, 0.9);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   padding: 0.125rem 0.5rem;
@@ -48,14 +48,13 @@
   line-height: 14px;
   letter-spacing: 0.025em;
   border-radius: $radius-pill;
-  border-color: rgba(230, 216, 189, 0.6);
+  border-color: rgba(251, 248, 241, 0.2);
   user-select: none;
-  box-shadow: $shadow-sm;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .sage {
-  background-color: rgba(221, 231, 207, 0.8);
+  background-color: rgba(220, 232, 223, 0.8);
   color: var(--soil);
   border-color: var(--sand);
   padding: 0.25rem 0.625rem;

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Badge } from '../ui/Badge';
 import { useCart } from '../../context/CartContext';
 import { useToast } from '../../context/ToastContext';
-import { Heart, ShoppingBag } from 'lucide-react';
+import { Heart, Plus } from 'lucide-react';
 import styles from './ProductCard.module.scss';
 
 export const ProductCard = ({ product }) => {
@@ -22,7 +22,7 @@ export const ProductCard = ({ product }) => {
       quantity: 1,
       image: product.image,
     });
-    showToast(`Added ${product.name} to cart!`, 'success');
+    showToast(`Added ${product.name} to cart`, 'success');
   };
 
   const handleLike = (e) => {
@@ -32,59 +32,41 @@ export const ProductCard = ({ product }) => {
   };
 
   return (
-    <Link
-      to={`/shop/${product.slug}`}
-      className={styles.card}
-    >
+    <Link to={`/shop/${product.slug}`} className={styles.card} data-cursor="View">
       <div className={styles.imageContainer}>
-        <img
-          src={product.image}
-          alt={product.name}
-          className={styles.image}
-        />
+        <img src={product.image} alt={product.name} className={styles.image} loading="lazy" />
 
         <button
           onClick={handleLike}
           className={`${styles.likeButton} ${isLiked ? styles.isLiked : ''}`}
           aria-label={isLiked ? 'Remove from wishlist' : 'Add to wishlist'}
         >
-          <Heart className={`${styles.likeIcon} ${isLiked ? styles.likeIconFilled : ''}`} />
+          <Heart className={`${styles.likeIcon} ${isLiked ? styles.likeIconFilled : ''}`} strokeWidth={1.6} />
         </button>
 
         <div className={styles.badgePosition}>
           <Badge variant="illustrative">Illustrative image</Badge>
         </div>
+
+        <button onClick={handleQuickAdd} className={styles.quickAddButton} aria-label="Add to cart">
+          <Plus className={styles.bagIcon} strokeWidth={1.8} />
+          <span className={styles.quickAddLabel}>Add</span>
+        </button>
       </div>
 
       <div className={styles.content}>
-        <div>
-          <div className={styles.headerRow}>
-            <span className={styles.category}>
-              {product.category}
-            </span>
-            <Badge variant="stock">In stock</Badge>
-          </div>
-
-          <h3 className={styles.title}>
-            {product.name}
-          </h3>
-          <p className={styles.subtitle}>
-            {product.subtitle}
-          </p>
-        </div>
-
-        <div className={styles.footerRow}>
-          <span className={styles.price}>
-            ₹{product.price}
+        <div className={styles.headerRow}>
+          <span className={styles.category}>{product.category}</span>
+          <span className={styles.stock}>
+            <span className={styles.stockDot} /> In stock
           </span>
-          <button
-            onClick={handleQuickAdd}
-            className={styles.quickAddButton}
-            aria-label="Add to cart"
-          >
-            <ShoppingBag className={styles.bagIcon} />
-          </button>
         </div>
+
+        <div className={styles.titleRow}>
+          <h3 className={styles.title}>{product.name}</h3>
+          <span className={styles.price}>₹{product.price}</span>
+        </div>
+        <p className={styles.subtitle}>{product.subtitle}</p>
       </div>
     </Link>
   );

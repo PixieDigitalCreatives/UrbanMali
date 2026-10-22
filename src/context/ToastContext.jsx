@@ -39,9 +39,9 @@ export const ToastProvider = ({ children }) => {
               {toast.type === 'error' ? (
                 <AlertCircle style={{ width: '20px', height: '20px', color: '#C25E3E', flexShrink: 0 }} />
               ) : toast.type === 'info' ? (
-                <Info style={{ width: '20px', height: '20px', color: '#8B6B4A', flexShrink: 0 }} />
+                <Info style={{ width: '20px', height: '20px', color: '#5F7268', flexShrink: 0 }} />
               ) : (
-                <CheckCircle style={{ width: '20px', height: '20px', color: '#3F5B34', flexShrink: 0 }} />
+                <CheckCircle style={{ width: '20px', height: '20px', color: '#1F5E46', flexShrink: 0 }} />
               )}
               <span style={{ fontWeight: 500 }}>{toast.message}</span>
             </div>
@@ -52,14 +52,14 @@ export const ToastProvider = ({ children }) => {
                     toast.onAction?.();
                     removeToast(toast.id);
                   }}
-                  style={{ fontSize: '12px', fontWeight: 600, color: '#3F5B34', textDecoration: 'underline', background: 'transparent', border: 'none', cursor: 'pointer' }}
+                  style={{ fontSize: '12px', fontWeight: 600, color: '#1F5E46', textDecoration: 'underline', background: 'transparent', border: 'none', cursor: 'pointer' }}
                 >
                   {toast.actionLabel}
                 </button>
               )}
               <button
                 onClick={() => removeToast(toast.id)}
-                style={{ color: '#8B6B4A', padding: '0.25rem', background: 'transparent', border: 'none', cursor: 'pointer' }}
+                style={{ color: '#5F7268', padding: '0.25rem', background: 'transparent', border: 'none', cursor: 'pointer' }}
                 aria-label="Close notification"
               >
                 <X style={{ width: '16px', height: '16px' }} />

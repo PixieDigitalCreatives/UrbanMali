@@ -4,6 +4,7 @@ import { ProductCard } from '../components/cards/ProductCard';
 import { Chip } from '../components/ui/Chip';
 import { Modal } from '../components/ui/Modal';
 import { Button } from '../components/ui/Button';
+import { PageHero } from '../components/ui/PageHero';
 import { Search, SlidersHorizontal, Sprout } from 'lucide-react';
 import styles from './ShopPage.module.scss';
 
@@ -31,19 +32,17 @@ export const ShopPage = () => {
 
   return (
     <div className={styles.page}>
+      <PageHero
+        index="03"
+        eyebrow="The nursery shelf"
+        title="Plant nursery *& shop*"
+        subtitle="Healthy air-purifying foliage, balcony varieties, handcrafted pots, and enriched soil mixes."
+        slides={products.map((p) => p.image)}
+      />
       <div className={styles.container}>
-        {/* Title */}
-        <div className={styles.header}>
-          <h1 className={styles.title}>
-            Plant Nursery & Shop
-          </h1>
-          <p className={styles.subtitle}>
-            Healthy air-purifying foliage, balcony varieties, handcrafted pots, and enriched soil mixes.
-          </p>
-        </div>
 
         {/* Search Bar + Filter Button */}
-        <div className={styles.searchFilterBar}>
+        <div className={styles.searchFilterBar} data-reveal="up">
           <div className={styles.searchBox}>
             <Search className={styles.searchIcon} />
             <input
@@ -79,9 +78,11 @@ export const ShopPage = () => {
 
         {/* Product Grid */}
         {filteredProducts.length > 0 ? (
-          <div className={styles.productGrid}>
+          <div className={styles.productGrid} data-reveal-group data-reveal-stagger="0.07">
             {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <div key={product.id} data-reveal-item>
+                <ProductCard product={product} />
+              </div>
             ))}
           </div>
         ) : (

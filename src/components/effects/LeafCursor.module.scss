@@ -1,0 +1,100 @@
+@use '@/styles/abstracts' as *;
+
+// Leaf tip (the hotspot) sits at 3.6px, 3.6px inside the 44px svg
+$tip: 3.6px;
+
+.root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: z('cursor');
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 300ms $ease-out;
+  will-change: transform;
+
+  &.isVisible {
+    opacity: 1;
+  }
+
+  &.isHidden {
+    opacity: 0;
+  }
+
+  @media (hover: none), (pointer: coarse) {
+    display: none;
+  }
+}
+
+.leaf {
+  position: absolute;
+  left: -$tip;
+  top: -$tip;
+  overflow: visible;
+  transform-origin: $tip $tip;
+  filter: drop-shadow(0 6px 8px rgba(14, 53, 41, 0.22));
+}
+
+.body {
+  fill: var(--moss);
+  stroke: var(--card);
+  stroke-width: 1.4px;
+  transition: fill 300ms $ease-out;
+}
+
+.half {
+  fill: var(--moss-hover);
+  transition: fill 300ms $ease-out;
+}
+
+.rib {
+  fill: none;
+  stroke: rgba(251, 248, 241, 0.6);
+  stroke-width: 0.9px;
+}
+
+.stem {
+  fill: none;
+  stroke: var(--brown);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+.isHover {
+  .body {
+    fill: var(--moss-hover);
+  }
+
+  .half {
+    fill: var(--sage);
+  }
+}
+
+.isPressed .leaf {
+  filter: drop-shadow(0 2px 3px rgba(14, 53, 41, 0.3));
+}
+
+.label {
+  position: absolute;
+  left: 22px;
+  top: 30px;
+  padding: 0.45rem 0.85rem;
+  border-radius: $radius-pill;
+  background: var(--soil);
+  color: var(--beige);
+  font-family: $font-sans;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  transform: scale(0.6) translateY(-6px);
+  transform-origin: top left;
+  transition: opacity 250ms $ease-out, transform 450ms $ease-spring;
+}
+
+.hasLabel .label {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}

@@ -9,6 +9,7 @@ export const PincodeField = ({
   className = '',
   onResult,
   compact = false,
+  tone = 'light',
 }) => {
   const [pincode, setPincode] = useState('');
   const [loading, setLoading] = useState(false);
@@ -36,7 +37,7 @@ export const PincodeField = ({
   };
 
   return (
-    <div className={`${styles.wrapper} ${className}`}>
+    <div className={`${styles.wrapper} ${tone === 'dark' ? styles.dark : ''} ${className}`}>
       <form onSubmit={handleCheck} className={styles.form}>
         <input
           type="text"

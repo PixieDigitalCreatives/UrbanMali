@@ -189,71 +189,71 @@ export const BookingPage = () => {
         <div className={styles.successContainer}>
           <div className={styles.successWreath}>
             <svg viewBox="0 0 100 100" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }}>
-              <circle cx="50" cy="50" r="44" stroke="#A9BE8F" strokeWidth="2" strokeDasharray="6 4" fill="none" />
+              <circle cx="50" cy="50" r="44" stroke="#8DB8A2" strokeWidth="2" strokeDasharray="6 4" fill="none" />
             </svg>
             <Check style={{ width: '40px', height: '40px', strokeWidth: 3 }} />
           </div>
 
-          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.75rem', fontWeight: 600, color: 'var(--soil, #2B2118)', marginBottom: '0.25rem' }}>
+          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.75rem', fontWeight: 600, color: 'var(--soil, #0E3529)', marginBottom: '0.25rem' }}>
             Request Received
           </h1>
 
           <div className={styles.refIdPill}>
-            <span style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--clay, #8B6B4A)', fontWeight: 500 }}>
+            <span style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--clay, #5F7268)', fontWeight: 500 }}>
               Reference ID:
             </span>
-            <span style={{ fontFamily: 'monospace', fontSize: '1rem', fontWeight: 700, color: 'var(--moss, #3F5B34)' }}>
+            <span style={{ fontFamily: 'monospace', fontSize: '1rem', fontWeight: 700, color: 'var(--moss, #1F5E46)' }}>
               {successData.referenceId}
             </span>
             <button
               onClick={() => copyRefId(successData.referenceId || '')}
-              style={{ padding: '0.25rem', background: 'transparent', border: 'none', cursor: 'pointer', color: 'var(--clay, #8B6B4A)', borderRadius: '9999px' }}
+              style={{ padding: '0.25rem', background: 'transparent', border: 'none', cursor: 'pointer', color: 'var(--clay, #5F7268)', borderRadius: '9999px' }}
               aria-label="Copy reference ID"
             >
               <Copy style={{ width: '14px', height: '14px' }} />
             </button>
           </div>
 
-          <p style={{ fontSize: '0.875rem', color: 'var(--clay, #8B6B4A)', marginTop: '1rem', maxWidth: '28rem', lineHeight: 1.625 }}>
+          <p style={{ fontSize: '0.875rem', color: 'var(--clay, #5F7268)', marginTop: '1rem', maxWidth: '28rem', lineHeight: 1.625 }}>
             We'll confirm availability, coverage, and price on WhatsApp or call. Please keep your phone handy!
           </p>
 
           {/* Summary Card */}
           <div className={styles.formCard} style={{ width: '100%', marginTop: '1.5rem', textAlign: 'left' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', paddingBottom: '1rem', borderBottom: '1px solid rgba(230, 216, 189, 0.6)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', paddingBottom: '1rem', borderBottom: '1px solid rgba(231, 222, 198, 0.6)' }}>
               <img
                 src={selectedService.image}
                 alt={selectedService.title}
                 style={{ width: '48px', height: '48px', borderRadius: '12px', objectFit: 'cover' }}
               />
               <div>
-                <h3 style={{ fontWeight: 600, color: 'var(--soil, #2B2118)', fontSize: '0.95rem' }}>
+                <h3 style={{ fontFamily: 'var(--font-sans)', fontWeight: 650, color: 'var(--soil, #0E3529)', fontSize: '0.95rem' }}>
                   {selectedService.title}
                 </h3>
-                <span style={{ fontSize: '12px', color: 'var(--moss, #3F5B34)', fontWeight: 600 }}>{selectedService.priceDisplay}</span>
+                <span style={{ fontSize: '12px', color: 'var(--moss, #1F5E46)', fontWeight: 600 }}>{selectedService.priceDisplay}</span>
               </div>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '0.75rem', paddingTop: '0.5rem', fontSize: '0.85rem' }}>
               <div>
-                <span style={{ color: 'var(--clay, #8B6B4A)', display: 'block', fontSize: '11px', textTransform: 'uppercase' }}>Property</span>
-                <span style={{ fontWeight: 600, color: 'var(--soil, #2B2118)' }}>{successData.propertyType}</span>
+                <span style={{ color: 'var(--clay, #5F7268)', display: 'block', fontSize: '11px', textTransform: 'uppercase' }}>Property</span>
+                <span style={{ fontWeight: 600, color: 'var(--soil, #0E3529)' }}>{successData.propertyType}</span>
               </div>
               <div>
-                <span style={{ color: 'var(--clay, #8B6B4A)', display: 'block', fontSize: '11px', textTransform: 'uppercase' }}>Pot Count</span>
-                <span style={{ fontWeight: 600, color: 'var(--soil, #2B2118)' }}>{successData.potRange}</span>
+                <span style={{ color: 'var(--clay, #5F7268)', display: 'block', fontSize: '11px', textTransform: 'uppercase' }}>Pot Count</span>
+                <span style={{ fontWeight: 600, color: 'var(--soil, #0E3529)' }}>{successData.potRange}</span>
               </div>
               <div style={{ gridColumn: 'span 2' }}>
-                <span style={{ color: 'var(--clay, #8B6B4A)', display: 'block', fontSize: '11px', textTransform: 'uppercase' }}>Address</span>
-                <span style={{ fontWeight: 600, color: 'var(--soil, #2B2118)' }}>{successData.address}, {successData.pincode}</span>
+                <span style={{ color: 'var(--clay, #5F7268)', display: 'block', fontSize: '11px', textTransform: 'uppercase' }}>Address</span>
+                <span style={{ fontWeight: 600, color: 'var(--soil, #0E3529)' }}>{successData.address}, {successData.pincode}</span>
               </div>
               <div>
-                <span style={{ color: 'var(--clay, #8B6B4A)', display: 'block', fontSize: '11px', textTransform: 'uppercase' }}>Preferred Date</span>
-                <span style={{ fontWeight: 600, color: 'var(--soil, #2B2118)' }}>{successData.date}</span>
+                <span style={{ color: 'var(--clay, #5F7268)', display: 'block', fontSize: '11px', textTransform: 'uppercase' }}>Preferred Date</span>
+                <span style={{ fontWeight: 600, color: 'var(--soil, #0E3529)' }}>{successData.date}</span>
               </div>
               <div>
-                <span style={{ color: 'var(--clay, #8B6B4A)', display: 'block', fontSize: '11px', textTransform: 'uppercase' }}>Time Slot</span>
-                <span style={{ fontWeight: 600, color: 'var(--soil, #2B2118)' }}>{successData.timeSlot}</span>
+                <span style={{ color: 'var(--clay, #5F7268)', display: 'block', fontSize: '11px', textTransform: 'uppercase' }}>Time Slot</span>
+                <span style={{ fontWeight: 600, color: 'var(--soil, #0E3529)' }}>{successData.timeSlot}</span>
               </div>
             </div>
           </div>
@@ -281,7 +281,7 @@ export const BookingPage = () => {
           </div>
 
           <div style={{ marginTop: '2rem' }}>
-            <Link to="/" style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--moss, #3F5B34)', textDecoration: 'none' }}>
+            <Link to="/" style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--moss, #1F5E46)', textDecoration: 'none' }}>
               ← Return to Home
             </Link>
           </div>
@@ -364,12 +364,12 @@ export const BookingPage = () => {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                   <img src={svc.image} alt={svc.title} style={{ width: '48px', height: '48px', borderRadius: '12px', objectFit: 'cover' }} />
                   <div>
-                    <h3 style={{ fontWeight: 600, color: 'var(--soil, #2B2118)', fontSize: '0.95rem' }}>{svc.title}</h3>
-                    <span style={{ fontSize: '12px', color: 'var(--clay, #8B6B4A)' }}>{svc.duration}</span>
+                    <h3 style={{ fontFamily: 'var(--font-sans)', fontWeight: 650, color: 'var(--soil, #0E3529)', fontSize: '0.95rem' }}>{svc.title}</h3>
+                    <span style={{ fontSize: '12px', color: 'var(--clay, #5F7268)' }}>{svc.duration}</span>
                   </div>
                 </div>
                 <div style={{ textAlign: 'right' }}>
-                  <span style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--moss, #3F5B34)' }}>{svc.priceDisplay}</span>
+                  <span style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--moss, #1F5E46)' }}>{svc.priceDisplay}</span>
                 </div>
               </div>
             ))}
@@ -380,7 +380,7 @@ export const BookingPage = () => {
         {step === 2 && (
           <div className={styles.formCard}>
             <div>
-              <label style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--soil, #2B2118)', display: 'block', marginBottom: '0.5rem' }}>
+              <label style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--soil, #0E3529)', display: 'block', marginBottom: '0.5rem' }}>
                 Property Type
               </label>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
@@ -405,10 +405,10 @@ export const BookingPage = () => {
             />
 
             <div>
-              <label style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--soil, #2B2118)', display: 'block', marginBottom: '0.375rem' }}>
+              <label style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--soil, #0E3529)', display: 'block', marginBottom: '0.375rem' }}>
                 Postal Pincode <span style={{ color: 'var(--brick, #C25E3E)' }}>*</span>
               </label>
-              <div style={{ display: 'flex', alignItems: 'center', backgroundColor: 'var(--card, #FAF5EA)', borderRadius: '12px', border: '1px solid var(--sand, #E6D8BD)', overflow: 'hidden' }}>
+              <div style={{ display: 'flex', alignItems: 'center', backgroundColor: 'var(--card, #FBF8F1)', borderRadius: '12px', border: '1px solid var(--sand, #E7DEC6)', overflow: 'hidden' }}>
                 <input
                   type="text"
                   maxLength={6}
@@ -418,25 +418,25 @@ export const BookingPage = () => {
                     setPincode(e.target.value.replace(/\D/g, ''));
                     setPincodeValid(null);
                   }}
-                  style={{ flex: 1, padding: '0.75rem 1rem', background: 'transparent', color: 'var(--soil, #2B2118)', fontSize: '0.875rem', border: 'none', outline: 'none' }}
+                  style={{ flex: 1, padding: '0.75rem 1rem', background: 'transparent', color: 'var(--soil, #0E3529)', fontSize: '0.875rem', border: 'none', outline: 'none' }}
                 />
                 <button
                   type="button"
                   onClick={handlePincodeVerify}
                   disabled={checkLoading || pincode.length !== 6}
-                  style={{ height: '40px', padding: '0 1rem', backgroundColor: 'var(--moss, #3F5B34)', color: 'var(--beige, #F4ECDD)', fontSize: '12px', fontWeight: 600, borderRadius: '8px', marginRight: '4px', border: 'none', cursor: 'pointer' }}
+                  style={{ height: '40px', padding: '0 1rem', backgroundColor: 'var(--moss, #1F5E46)', color: 'var(--beige, #F5F0E4)', fontSize: '12px', fontWeight: 600, borderRadius: '8px', marginRight: '4px', border: 'none', cursor: 'pointer' }}
                 >
                   {checkLoading ? 'Checking...' : 'Check'}
                 </button>
               </div>
 
               {pincodeValid === true && (
-                <span style={{ fontSize: '12px', color: 'var(--moss, #3F5B34)', fontWeight: 600, display: 'block', marginTop: '4px' }}>
+                <span style={{ fontSize: '12px', color: 'var(--moss, #1F5E46)', fontWeight: 600, display: 'block', marginTop: '4px' }}>
                   ✓ We serve this area
                 </span>
               )}
               {pincodeValid === false && (
-                <span style={{ fontSize: '12px', color: 'var(--clay, #8B6B4A)', fontWeight: 500, display: 'block', marginTop: '4px' }}>
+                <span style={{ fontSize: '12px', color: 'var(--clay, #5F7268)', fontWeight: 500, display: 'block', marginTop: '4px' }}>
                   Area pending coverage; we will verify during coordination.
                 </span>
               )}
@@ -450,13 +450,13 @@ export const BookingPage = () => {
             />
 
             <div>
-              <label style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--soil, #2B2118)', display: 'block', marginBottom: '0.375rem' }}>
+              <label style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--soil, #0E3529)', display: 'block', marginBottom: '0.375rem' }}>
                 Approximate Number of Pots
               </label>
               <select
                 value={potRange}
                 onChange={(e) => setPotRange(e.target.value)}
-                style={{ width: '100%', height: '48px', padding: '0 1rem', borderRadius: '12px', backgroundColor: 'var(--card, #FAF5EA)', border: '1px solid var(--sand, #E6D8BD)', color: 'var(--soil, #2B2118)', fontSize: '0.875rem', outline: 'none' }}
+                style={{ width: '100%', height: '48px', padding: '0 1rem', borderRadius: '12px', backgroundColor: 'var(--card, #FBF8F1)', border: '1px solid var(--sand, #E7DEC6)', color: 'var(--soil, #0E3529)', fontSize: '0.875rem', outline: 'none' }}
               >
                 {POT_RANGES.map((range) => (
                   <option key={range} value={range}>
@@ -472,7 +472,7 @@ export const BookingPage = () => {
         {step === 3 && (
           <div className={styles.formCard}>
             <div>
-              <label style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--soil, #2B2118)', display: 'block', marginBottom: '0.5rem' }}>
+              <label style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--soil, #0E3529)', display: 'block', marginBottom: '0.5rem' }}>
                 Select Preferred Date
               </label>
               <input
@@ -480,12 +480,12 @@ export const BookingPage = () => {
                 min={new Date().toISOString().split('T')[0]}
                 value={selectedDate}
                 onChange={(e) => setSelectedDate(e.target.value)}
-                style={{ width: '100%', height: '48px', padding: '0 1rem', borderRadius: '12px', backgroundColor: 'var(--card, #FAF5EA)', border: '1px solid var(--sand, #E6D8BD)', color: 'var(--soil, #2B2118)', fontSize: '0.875rem', outline: 'none' }}
+                style={{ width: '100%', height: '48px', padding: '0 1rem', borderRadius: '12px', backgroundColor: 'var(--card, #FBF8F1)', border: '1px solid var(--sand, #E7DEC6)', color: 'var(--soil, #0E3529)', fontSize: '0.875rem', outline: 'none' }}
               />
             </div>
 
             <div>
-              <label style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--soil, #2B2118)', display: 'block', marginBottom: '0.5rem' }}>
+              <label style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--soil, #0E3529)', display: 'block', marginBottom: '0.5rem' }}>
                 Select Time Slot (7:00 AM – 6:00 PM)
               </label>
               <div className={styles.timeSlotGrid}>
@@ -497,7 +497,7 @@ export const BookingPage = () => {
                     className={`${styles.timeSlotBtn} ${selectedSlot === slot ? styles.selected : ''}`}
                   >
                     <span>{slot}</span>
-                    {selectedSlot === slot && <Check style={{ width: '16px', height: '16px', color: '#F4ECDD' }} />}
+                    {selectedSlot === slot && <Check style={{ width: '16px', height: '16px', color: '#F5F0E4' }} />}
                   </button>
                 ))}
               </div>
@@ -517,11 +517,11 @@ export const BookingPage = () => {
             />
 
             <div>
-              <label style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--soil, #2B2118)', display: 'block', marginBottom: '0.375rem' }}>
+              <label style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--soil, #0E3529)', display: 'block', marginBottom: '0.375rem' }}>
                 WhatsApp / Phone Number <span style={{ color: 'var(--brick, #C25E3E)' }}>*</span>
               </label>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <span style={{ height: '48px', padding: '0 0.75rem', backgroundColor: 'rgba(230, 216, 189, 0.4)', border: '1px solid var(--sand, #E6D8BD)', borderRight: 'none', borderRadius: '12px 0 0 12px', color: 'var(--soil, #2B2118)', fontWeight: 600, fontSize: '0.875rem', display: 'flex', alignItems: 'center' }}>
+                <span style={{ height: '48px', padding: '0 0.75rem', backgroundColor: 'rgba(231, 222, 198, 0.4)', border: '1px solid var(--sand, #E7DEC6)', borderRight: 'none', borderRadius: '12px 0 0 12px', color: 'var(--soil, #0E3529)', fontWeight: 600, fontSize: '0.875rem', display: 'flex', alignItems: 'center' }}>
                   +91
                 </span>
                 <input
@@ -530,7 +530,7 @@ export const BookingPage = () => {
                   placeholder="98765 43210"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
-                  style={{ flex: 1, height: '48px', padding: '0 1rem', borderRadius: '0 12px 12px 0', backgroundColor: 'var(--card, #FAF5EA)', border: '1px solid var(--sand, #E6D8BD)', color: 'var(--soil, #2B2118)', fontSize: '0.875rem', outline: 'none' }}
+                  style={{ flex: 1, height: '48px', padding: '0 1rem', borderRadius: '0 12px 12px 0', backgroundColor: 'var(--card, #FBF8F1)', border: '1px solid var(--sand, #E7DEC6)', color: 'var(--soil, #0E3529)', fontSize: '0.875rem', outline: 'none' }}
                   required
                 />
               </div>
@@ -545,7 +545,7 @@ export const BookingPage = () => {
             />
 
             <div>
-              <label style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--soil, #2B2118)', display: 'block', marginBottom: '0.375rem' }}>
+              <label style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--soil, #0E3529)', display: 'block', marginBottom: '0.375rem' }}>
                 Notes for Maali (Optional)
               </label>
               <textarea
@@ -553,16 +553,16 @@ export const BookingPage = () => {
                 placeholder="Mention specific plants, pest problems, or access gates..."
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                style={{ width: '100%', padding: '0.625rem 1rem', borderRadius: '12px', backgroundColor: 'var(--card, #FAF5EA)', border: '1px solid var(--sand, #E6D8BD)', color: 'var(--soil, #2B2118)', fontSize: '0.875rem', outline: 'none' }}
+                style={{ width: '100%', padding: '0.625rem 1rem', borderRadius: '12px', backgroundColor: 'var(--card, #FBF8F1)', border: '1px solid var(--sand, #E7DEC6)', color: 'var(--soil, #0E3529)', fontSize: '0.875rem', outline: 'none' }}
               />
             </div>
 
-            <label style={{ display: 'flex', alignItems: 'flex-start', gap: '0.625rem', cursor: 'pointer', userSelect: 'none', fontSize: '12px', color: 'var(--clay, #8B6B4A)', marginTop: '0.5rem' }}>
+            <label style={{ display: 'flex', alignItems: 'flex-start', gap: '0.625rem', cursor: 'pointer', userSelect: 'none', fontSize: '12px', color: 'var(--clay, #5F7268)', marginTop: '0.5rem' }}>
               <input
                 type="checkbox"
                 checked={consent}
                 onChange={(e) => setConsent(e.target.checked)}
-                style={{ marginTop: '2px', accentColor: 'var(--moss, #3F5B34)' }}
+                style={{ marginTop: '2px', accentColor: 'var(--moss, #1F5E46)' }}
                 required
               />
               <span>I agree to be contacted on WhatsApp or phone call regarding this service request.</span>
@@ -573,9 +573,9 @@ export const BookingPage = () => {
         {/* STEP 5: REVIEW SUMMARY */}
         {step === 5 && (
           <div className={styles.formCard}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: '0.75rem', borderBottom: '1px solid rgba(230, 216, 189, 0.6)' }}>
-              <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--clay, #8B6B4A)' }}>Request Overview</span>
-              <button onClick={() => setStep(1)} style={{ fontSize: '12px', color: 'var(--moss, #3F5B34)', fontWeight: 600, background: 'transparent', border: 'none', cursor: 'pointer' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: '0.75rem', borderBottom: '1px solid rgba(231, 222, 198, 0.6)' }}>
+              <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--clay, #5F7268)' }}>Request Overview</span>
+              <button onClick={() => setStep(1)} style={{ fontSize: '12px', color: 'var(--moss, #1F5E46)', fontWeight: 600, background: 'transparent', border: 'none', cursor: 'pointer' }}>
                 Edit
               </button>
             </div>
@@ -583,31 +583,31 @@ export const BookingPage = () => {
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
               <img src={selectedService.image} alt={selectedService.title} style={{ width: '56px', height: '56px', borderRadius: '12px', objectFit: 'cover' }} />
               <div>
-                <h3 style={{ fontWeight: 600, color: 'var(--soil, #2B2118)', fontSize: '1rem' }}>{selectedService.title}</h3>
-                <span style={{ fontSize: '12px', color: 'var(--moss, #3F5B34)', fontWeight: 700 }}>{selectedService.priceDisplay}</span>
+                <h3 style={{ fontFamily: 'var(--font-sans)', fontWeight: 650, color: 'var(--soil, #0E3529)', fontSize: '1rem' }}>{selectedService.title}</h3>
+                <span style={{ fontSize: '12px', color: 'var(--moss, #1F5E46)', fontWeight: 700 }}>{selectedService.priceDisplay}</span>
               </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '0.75rem', paddingTop: '0.75rem', borderTop: '1px solid rgba(230, 216, 189, 0.5)', fontSize: '0.85rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '0.75rem', paddingTop: '0.75rem', borderTop: '1px solid rgba(231, 222, 198, 0.5)', fontSize: '0.85rem' }}>
               <div>
-                <span style={{ color: 'var(--clay, #8B6B4A)', fontSize: '12px', display: 'block' }}>Property</span>
-                <span style={{ fontWeight: 600, color: 'var(--soil, #2B2118)' }}>{propertyType} ({potRange})</span>
+                <span style={{ color: 'var(--clay, #5F7268)', fontSize: '12px', display: 'block' }}>Property</span>
+                <span style={{ fontWeight: 600, color: 'var(--soil, #0E3529)' }}>{propertyType} ({potRange})</span>
               </div>
               <div>
-                <span style={{ color: 'var(--clay, #8B6B4A)', fontSize: '12px', display: 'block' }}>Preferred Slot</span>
-                <span style={{ fontWeight: 600, color: 'var(--soil, #2B2118)' }}>{selectedDate} — {selectedSlot}</span>
+                <span style={{ color: 'var(--clay, #5F7268)', fontSize: '12px', display: 'block' }}>Preferred Slot</span>
+                <span style={{ fontWeight: 600, color: 'var(--soil, #0E3529)' }}>{selectedDate} — {selectedSlot}</span>
               </div>
               <div style={{ gridColumn: 'span 2' }}>
-                <span style={{ color: 'var(--clay, #8B6B4A)', fontSize: '12px', display: 'block' }}>Address</span>
-                <span style={{ fontWeight: 600, color: 'var(--soil, #2B2118)' }}>{address}, {pincode}</span>
+                <span style={{ color: 'var(--clay, #5F7268)', fontSize: '12px', display: 'block' }}>Address</span>
+                <span style={{ fontWeight: 600, color: 'var(--soil, #0E3529)' }}>{address}, {pincode}</span>
               </div>
               <div style={{ gridColumn: 'span 2' }}>
-                <span style={{ color: 'var(--clay, #8B6B4A)', fontSize: '12px', display: 'block' }}>Contact</span>
-                <span style={{ fontWeight: 600, color: 'var(--soil, #2B2118)' }}>{name} (+91 {phone})</span>
+                <span style={{ color: 'var(--clay, #5F7268)', fontSize: '12px', display: 'block' }}>Contact</span>
+                <span style={{ fontWeight: 600, color: 'var(--soil, #0E3529)' }}>{name} (+91 {phone})</span>
               </div>
             </div>
 
-            <div style={{ padding: '0.75rem', backgroundColor: 'rgba(221, 231, 207, 0.5)', borderRadius: '12px', border: '1px solid rgba(63, 91, 52, 0.2)', fontSize: '12px', color: 'var(--soil, #2B2118)' }}>
+            <div style={{ padding: '0.75rem', backgroundColor: 'rgba(220, 232, 223, 0.5)', borderRadius: '12px', border: '1px solid rgba(31, 94, 70, 0.2)', fontSize: '12px', color: 'var(--soil, #0E3529)' }}>
               ℹ No payment is charged now. We confirm coverage, timing and final pricing with you on WhatsApp or call first.
             </div>
           </div>

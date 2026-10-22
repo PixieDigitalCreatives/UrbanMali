@@ -58,19 +58,20 @@ export const ServiceDetailPage = () => {
         {/* Desktop Breadcrumb Navigation */}
         <div className={styles.breadcrumbs}>
           <Link to="/">Home</Link>
-          <ChevronRight style={{ width: '14px', height: '14px', color: '#E6D8BD' }} />
+          <ChevronRight style={{ width: '14px', height: '14px', opacity: 0.4 }} />
           <Link to="/services">Services</Link>
-          <ChevronRight style={{ width: '14px', height: '14px', color: '#E6D8BD' }} />
+          <ChevronRight style={{ width: '14px', height: '14px', opacity: 0.4 }} />
           <span className={styles.currentCrumb}>{service.title}</span>
         </div>
 
         <div className={styles.detailGrid}>
           {/* Left Column: Photo & Media Card */}
           <div className={styles.mediaCol}>
-            <div className={styles.imageFrame}>
+            <div className={styles.imageFrame} data-reveal="image" data-creeper="arch" data-creeper-span="0.6">
               <img
                 src={service.image}
                 alt={service.title}
+                data-parallax="5"
               />
               <div className={styles.illustrativeBadge}>
                 <Badge variant="illustrative">Illustrative image</Badge>
@@ -78,21 +79,22 @@ export const ServiceDetailPage = () => {
             </div>
 
             {/* Trust feature pills */}
-            <div className={styles.trustPills}>
+            <div className={styles.trustPills} data-reveal="up" data-reveal-delay="0.3">
               <div className={styles.trustPill}>
-                <ShieldCheck style={{ width: '20px', height: '20px', color: '#3F5B34', flexShrink: 0 }} />
+                <ShieldCheck strokeWidth={1.5} className={styles.trustIcon} />
                 <span>Verified Local Maalis</span>
               </div>
               <div className={styles.trustPill}>
-                <Clock style={{ width: '20px', height: '20px', color: '#3F5B34', flexShrink: 0 }} />
+                <Clock strokeWidth={1.5} className={styles.trustIcon} />
                 <span>Transparent Pricing</span>
               </div>
             </div>
           </div>
 
           {/* Right Column: Title, Price, Inclusions, and Booking Actions */}
-          <div className={styles.infoCol}>
-            <div>
+          <div className={styles.infoCol} data-reveal-group data-reveal-stagger="0.08">
+            <div data-reveal-item>
+              <span className={styles.eyebrow}>Service</span>
               <h1 className={styles.mainHeading}>
                 {service.title}
               </h1>
@@ -102,7 +104,7 @@ export const ServiceDetailPage = () => {
             </div>
 
             {/* Price Row */}
-            <div className={styles.priceCard}>
+            <div className={styles.priceCard} data-reveal-item>
               <span className={styles.priceDisplay}>
                 {service.priceDisplay}
               </span>
@@ -114,7 +116,7 @@ export const ServiceDetailPage = () => {
             </div>
 
             {/* Duration Row */}
-            <div className={styles.durationRow}>
+            <div className={styles.durationRow} data-reveal-item>
               <div className={styles.durationIconWrap}>
                 <Clock style={{ width: '16px', height: '16px' }} />
               </div>
@@ -125,7 +127,7 @@ export const ServiceDetailPage = () => {
             </div>
 
             {/* What's Included */}
-            <div className={styles.inclusionSection}>
+            <div className={styles.inclusionSection} data-reveal-item>
               <h3 className={styles.sectionLabel}>
                 What's included
               </h3>
@@ -142,7 +144,7 @@ export const ServiceDetailPage = () => {
             </div>
 
             {/* What's Not Included */}
-            <div className={styles.notIncludedSection}>
+            <div className={styles.notIncludedSection} data-reveal-item>
               <h3 className={styles.notIncludedLabel}>
                 What's not included
               </h3>
@@ -157,7 +159,7 @@ export const ServiceDetailPage = () => {
             </div>
 
             {/* Desktop Action Buttons */}
-            <div className={styles.desktopActions}>
+            <div className={styles.desktopActions} data-reveal-item>
               <Button
                 variant="primary"
                 size="lg"
@@ -176,7 +178,7 @@ export const ServiceDetailPage = () => {
                   variant="outline"
                   size="lg"
                   style={{ height: '56px', paddingLeft: '1.5rem', paddingRight: '1.5rem' }}
-                  icon={<MessageSquare style={{ width: '20px', height: '20px', color: '#3F5B34' }} />}
+                  icon={<MessageSquare style={{ width: '20px', height: '20px' }} />}
                 >
                   WhatsApp
                 </Button>

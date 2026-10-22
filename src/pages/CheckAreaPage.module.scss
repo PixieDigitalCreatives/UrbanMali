@@ -1,67 +1,25 @@
 @use '../styles/abstracts' as *;
 
 .page {
-  min-height: 100vh;
-  background-color: var(--beige, #F4ECDD);
-  padding: 3rem 1rem;
+  min-height: calc(100svh - 76px);
+  padding-bottom: clamp(5rem, 4rem + 4vw, 9rem);
   text-align: left;
-
-  @include respond-to('sm') {
-    padding: 3rem 1.5rem;
-  }
 }
 
 .container {
-  max-width: 36rem;
+  max-width: calc(40rem + (#{$gutter} * 2));
   margin-left: auto;
   margin-right: auto;
-}
-
-.header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.iconWrap {
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 9999px;
-  background-color: var(--sage-light, #DDE7CF);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--moss, #3F5B34);
-  margin: 0 auto 0.75rem;
-  border: 1px solid var(--sand, #E6D8BD);
-}
-
-.title {
-  font-family: $font-heading;
-  font-size: 1.875rem;
-  font-weight: 600;
-  color: var(--soil, #2B2118);
-
-  @include respond-to('sm') {
-    font-size: 2.25rem;
-  }
-}
-
-.subtitle {
-  color: var(--clay, #8B6B4A);
-  font-size: 0.875rem;
-  margin-top: 0.5rem;
-
-  @include respond-to('sm') {
-    font-size: 1rem;
-  }
+  padding-left: $gutter;
+  padding-right: $gutter;
 }
 
 .card {
-  background-color: var(--card, #FAF5EA);
-  border-radius: $radius-card;
-  border: 1px solid var(--sand, #E6D8BD);
-  padding: 1.5rem;
-  box-shadow: $shadow-card;
+  background-color: rgba(251, 248, 241, 0.8);
+  border-radius: $radius-frame;
+  border: 1px solid rgba(14, 53, 41, 0.08);
+  padding: clamp(1.5rem, 1rem + 2.5vw, 2.75rem);
+  box-shadow: $shadow-lift;
   margin-bottom: 2rem;
 }
 
@@ -74,5 +32,5 @@
 .resultArea {
   margin-top: 1.5rem;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(230, 216, 189, 0.6);
+  border-top: 1px solid rgba(14, 53, 41, 0.1);
 }

@@ -24,11 +24,11 @@
   justify-content: space-between;
   gap: 0.75rem;
   padding: 0.75rem 1rem;
-  background-color: var(--card, #FAF5EA);
-  border-left: 4px solid var(--moss, #3F5B34);
+  background-color: var(--card, #FBF8F1);
+  border-left: 4px solid var(--moss, #1F5E46);
   border-radius: 0 12px 12px 0;
   box-shadow: $shadow-lift;
-  color: var(--soil, #2B2118);
+  color: var(--soil, #0E3529);
   font-size: 0.875rem;
   animation: fadeIn $duration-base $ease-out;
 }

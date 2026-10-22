@@ -45,6 +45,7 @@
 }
 
 .categoryTitle {
+  font-family: $font-sans;
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -69,7 +70,7 @@
   transition: background-color $duration-fast $ease-out;
 
   &:hover {
-    background-color: rgba(230, 216, 189, 0.4);
+    background-color: rgba(231, 222, 198, 0.4);
   }
 }
 
@@ -94,7 +95,7 @@
   transition: background-color $duration-fast $ease-out;
 
   &:hover {
-    background-color: rgba(230, 216, 189, 0.4);
+    background-color: rgba(231, 222, 198, 0.4);
   }
 }
 

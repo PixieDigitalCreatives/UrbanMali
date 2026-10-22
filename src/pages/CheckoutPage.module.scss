@@ -2,7 +2,7 @@
 
 .page {
   min-height: 100vh;
-  background-color: var(--beige, #F4ECDD);
+  background-color: var(--beige, #F5F0E4);
   display: flex;
   flex-direction: column;
   padding-bottom: 7rem;
@@ -17,42 +17,63 @@
   position: sticky;
   top: 0;
   z-index: 30;
-  background-color: rgba(244, 236, 221, 0.95);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--sand, #E6D8BD);
-  padding: 0.875rem 1rem;
+  background-color: rgba(245, 240, 228, 0.82);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border-bottom: 1px solid rgba(14, 53, 41, 0.08);
+  padding: 0.875rem $gutter;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  @include respond-to('sm') {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+  // the global header already carries navigation on large screens
+  @include respond-to('xl') {
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: 0;
+    justify-content: center;
+    padding-top: 2.5rem;
+
+    > button,
+    > div,
+    > a {
+      display: none;
+    }
   }
 }
+
 
 .backBtn {
   padding: 0.375rem;
   margin-left: -0.25rem;
-  color: var(--soil, #2B2118);
+  color: var(--soil, #0E3529);
   border: none;
   background: transparent;
   cursor: pointer;
   border-radius: 9999px;
 
   &:hover {
-    color: var(--moss, #3F5B34);
+    color: var(--moss, #1F5E46);
   }
 }
 
 .title {
   font-family: $font-sans;
   font-weight: 600;
-  color: var(--soil, #2B2118);
+  color: var(--soil, #0E3529);
   font-size: 1rem;
 
   @include respond-to('sm') {
     font-size: 1.125rem;
+  }
+
+  @include respond-to('xl') {
+    font-family: $font-display;
+    font-weight: 400;
+    font-size: clamp(3rem, 2rem + 2.5vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
   }
 }
 
@@ -70,9 +91,9 @@
 }
 
 .card {
-  background-color: var(--card, #FAF5EA);
+  background-color: var(--card, #FBF8F1);
   border-radius: $radius-card;
-  border: 1px solid var(--sand, #E6D8BD);
+  border: 1px solid var(--sand, #E7DEC6);
   padding: 1.5rem;
   box-shadow: $shadow-card;
   display: flex;
@@ -82,15 +103,12 @@
 
 .cardTitle {
   font-family: $font-heading;
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--soil, #2B2118);
-  border-bottom: 1px solid rgba(230, 216, 189, 0.5);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--soil, #0E3529);
+  border-bottom: 1px solid rgba(231, 222, 198, 0.5);
   padding-bottom: 0.625rem;
-
-  @include respond-to('sm') {
-    font-size: 1.25rem;
-  }
 }
 
 .phoneGroup {
@@ -100,11 +118,11 @@
   .countryCode {
     height: 48px;
     padding: 0 0.75rem;
-    background-color: rgba(230, 216, 189, 0.4);
-    border: 1px solid var(--sand, #E6D8BD);
+    background-color: rgba(231, 222, 198, 0.4);
+    border: 1px solid var(--sand, #E7DEC6);
     border-right: none;
     border-radius: 12px 0 0 12px;
-    color: var(--soil, #2B2118);
+    color: var(--soil, #0E3529);
     font-weight: 600;
     font-size: 0.875rem;
     display: flex;
@@ -116,15 +134,15 @@
     height: 48px;
     padding: 0 1rem;
     border-radius: 0 12px 12px 0;
-    background-color: var(--card, #FAF5EA);
-    border: 1px solid var(--sand, #E6D8BD);
-    color: var(--soil, #2B2118);
+    background-color: var(--card, #FBF8F1);
+    border: 1px solid var(--sand, #E7DEC6);
+    color: var(--soil, #0E3529);
     font-size: 0.875rem;
     outline: none;
 
     &:focus {
-      border-color: var(--moss, #3F5B34);
-      box-shadow: 0 0 0 2px var(--sage-light, #DDE7CF);
+      border-color: var(--moss, #1F5E46);
+      box-shadow: 0 0 0 2px var(--sage-light, #DCE8DF);
     }
   }
 }
@@ -132,22 +150,22 @@
 .paymentOption {
   padding: 0.875rem;
   border-radius: 12px;
-  border: 1px solid var(--sand, #E6D8BD);
+  border: 1px solid var(--sand, #E7DEC6);
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  background-color: var(--card, #FAF5EA);
+  background-color: var(--card, #FBF8F1);
   transition: all $duration-fast $ease-out;
 
   &:hover {
-    background-color: rgba(230, 216, 189, 0.2);
+    background-color: rgba(231, 222, 198, 0.2);
   }
 
   &.selected {
-    background-color: rgba(221, 231, 207, 0.4);
-    border-color: var(--moss, #3F5B34);
-    box-shadow: 0 0 0 1px rgba(63, 91, 52, 0.3);
+    background-color: rgba(220, 232, 223, 0.4);
+    border-color: var(--moss, #1F5E46);
+    box-shadow: 0 0 0 1px rgba(31, 94, 70, 0.3);
     font-weight: 600;
   }
 }

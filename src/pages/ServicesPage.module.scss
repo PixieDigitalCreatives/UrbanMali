@@ -2,36 +2,12 @@
 
 .page {
   min-height: 100vh;
-  background-color: var(--beige, #F4ECDD);
-  padding-top: 1.5rem;
-  padding-bottom: 6rem;
+  padding-bottom: clamp(5rem, 4rem + 4vw, 9rem);
   text-align: left;
-
-  @include respond-to('sm') {
-    padding-top: 2.5rem;
-  }
-
-  @include respond-to('lg') {
-    padding-bottom: 4rem;
-  }
 }
 
 .container {
-  max-width: 1360px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-
-  @include respond-to('sm') {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-
-  @include respond-to('lg') {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
+  @include container;
 }
 
 .header {
@@ -46,7 +22,7 @@
   font-family: $font-heading;
   font-size: 1.875rem;
   font-weight: 600;
-  color: var(--soil, #2B2118);
+  color: var(--soil, #0E3529);
 
   @include respond-to('sm') {
     font-size: 2.25rem;
@@ -58,7 +34,7 @@
 }
 
 .subtitle {
-  color: var(--clay, #8B6B4A);
+  color: var(--clay, #5F7268);
   font-size: 0.875rem;
   margin-top: 0.375rem;
   max-width: 42rem;
@@ -74,7 +50,7 @@
   gap: 0.5rem;
   overflow-x: auto;
   padding-bottom: 0.75rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
 
   /* Hide scrollbar for Chrome, Safari and Opera */
   &::-webkit-scrollbar {
@@ -87,64 +63,44 @@
 .servicesGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem;
-  margin-bottom: 4rem;
-
-  @include respond-to('sm') {
-    gap: 1rem;
-  }
+  gap: 2.5rem 0.9rem;
+  margin-bottom: clamp(5rem, 4rem + 4vw, 8rem);
 
   @include respond-to('md') {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3.5rem 1.5rem;
   }
 
-  @include respond-to('lg') {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+  @include respond-to('xl') {
+    gap: 4rem 2rem;
   }
 }
 
 .ctaCard {
-  background-color: var(--card, #FAF5EA);
-  border-radius: $radius-card;
-  border: 1px solid var(--sand, #E6D8BD);
-  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: $radius-frame;
+  padding: clamp(2.5rem, 2rem + 4vw, 6rem) clamp(1.5rem, 1rem + 4vw, 5rem);
   text-align: center;
-  max-width: 48rem;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: $shadow-card;
-
-  @include respond-to('sm') {
-    padding: 2.5rem;
-  }
+  background:
+    radial-gradient(80% 90% at 100% 0%, rgba(74, 139, 110, 0.45), transparent 60%),
+    var(--moss);
+  color: var(--beige);
 }
 
 .ctaTitle {
-  font-family: $font-heading;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--soil, #2B2118);
-
-  @include respond-to('sm') {
-    font-size: 1.5rem;
-  }
-
-  @include respond-to('lg') {
-    font-size: 1.875rem;
-  }
+  @include display($type-h2);
+  color: var(--beige);
+  max-width: 18ch;
+  margin: 0 auto;
 }
 
 .ctaSubtitle {
-  color: var(--clay, #8B6B4A);
-  font-size: 0.75rem;
-  margin-top: 0.375rem;
-  max-width: 28rem;
-  margin-left: auto;
-  margin-right: auto;
-
-  @include respond-to('sm') {
-    font-size: 0.875rem;
-  }
+  color: rgba(245, 240, 228, 0.75);
+  font-size: 1rem;
+  line-height: 1.65;
+  margin: 1.25rem auto 0;
+  max-width: 32rem;
 }
 
 .ctaButtons {
@@ -153,7 +109,24 @@
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  margin-top: 1.25rem;
+  margin-top: 2.25rem;
+
+  button {
+    background-color: var(--beige);
+    color: var(--soil);
+    border-color: rgba(251, 248, 241, 0.4);
+  }
+
+  a + a button {
+    background-color: transparent;
+    color: var(--beige);
+  }
+
+  button:hover {
+    background-color: var(--leaf);
+    color: var(--soil);
+    border-color: var(--leaf);
+  }
 
   @include respond-to('sm') {
     flex-direction: row;
